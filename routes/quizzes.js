@@ -11,8 +11,12 @@ const quizQueries = require('../db/queries/quizzes');
 
 // HOMEPAGE - show list of public quizzes
 router.get('/', (req, res) => {
-  const templateVars = {} // pass the quiz details
+  // query returns an array of objects
+  const templateVars = {
+    // just pass the query result
+  }
   res.render('index', templateVars);
+  
   // quizQueries.getQuizzes()
   //   .then(users => {
   //     res.json({ users });
@@ -42,6 +46,11 @@ router.get('/:quizid', (req, res) => {
 
 // VIEW QUIZ - send quiz results to DB
 router.post('/:quizid', (req, res) => {
+
+})
+
+// MY QUIZZES - post route to delete a quiz {POST MVP}
+router.post('/:quizid/delete', (req, res) => {
 
 })
 
