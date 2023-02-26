@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     // just pass the query result
   }
   res.render('index', templateVars);
-  
+
   // quizQueries.getQuizzes()
   //   .then(users => {
   //     res.json({ users });
@@ -28,13 +28,26 @@ router.get('/', (req, res) => {
   //   });
 });
 
-// CREATE QUIZ - render page
+// CREATE QUIZ - render page to create a new quiz
 router.get('/create', (req, res) => {
-  res.render('create');
+  res.render('quiz_create');
+
 })
 
 // CREATE QUIZ - add newly created quiz to DB table
 router.post('/',(req,res) => {
+  //parse body for submitted quiz
+  const newQuiz = req.body;
+  console.log(newQuiz);
+  quizQueries.addNewQuiz(newQuiz)
+  .then(quiz => {
+    if (!quiz) {
+      res.send("oops something went wrong! Please try submitting again")
+      return;
+    }
+    res.send("new quiz has been created!")
+  })
+  .catch(error => res.send(error));
 
 })
 
