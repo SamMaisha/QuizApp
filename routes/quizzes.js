@@ -11,20 +11,22 @@ const quizQueries = require('../db/queries/quizzes');
 
 // HOMEPAGE - show list of public quizzes
 router.get('/', (req, res) => {
-  quizQueries.getQuizzes()
-  // returns an array of objects
-    .then(users => {
-      res.json({ users });
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
+  const templateVars = {} // pass the quiz details
+  res.render('index', templateVars);
+  // quizQueries.getQuizzes()
+  //   .then(users => {
+  //     res.json({ users });
+  //   })
+  //   .catch(err => {
+  //     res
+  //       .status(500)
+  //       .json({ error: err.message });
+  //   });
 });
 
 // CREATE QUIZ - render page
 router.get('/create', (req, res) => {
+  res.render('create');
 })
 
 // CREATE QUIZ - add newly created quiz to DB table
