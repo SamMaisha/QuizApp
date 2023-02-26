@@ -7,9 +7,16 @@
 
 const express = require('express');
 const router  = express.Router();
+const userQueries = require('../db/queries/users');
 
 // QUIZ RESULTS - render page for list of quizzes and results user has taken
 router.get('/:userid/results', (req, res) => {
+  // query returns a list of quizzes, results and result links as an array of objects
+  // pass results into templateVars
+  userQueries.getQuizResultsForUser()
+  .then()
+  .catch()
+
   res.render('user_results');
 });
 
