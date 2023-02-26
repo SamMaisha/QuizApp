@@ -1,10 +1,11 @@
 const db = require('../connection');
 
-const getUsers = () => {
-  return db.query('SELECT * FROM users;')
-    .then(data => {
-      return data.rows;
-    });
-};
+// get quiz results for user from quiz_results table (QUIZ RESULT)
+getQuizResultsForUser = function() {
+}
 
-module.exports = { getUsers };
+// get quizzes that were created by a user (MY QUIZZES)
+getQuizzesCreatedByUser = function() {
+
+}
+
