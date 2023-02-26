@@ -54,6 +54,8 @@ router.post('/',(req,res) => {
 
 // VIEW QUIZ - show single quiz for user to attempt
 router.get('/:quizid', (req, res) => {
+  // query should return an object
+  quizQueries.getSelectedQuiz(quizId)
 
 })
 
