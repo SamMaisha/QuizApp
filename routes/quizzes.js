@@ -53,12 +53,12 @@ router.post("/", (req, res) => {
 router.get("/:quizid", (req, res) => {
   const quizId = req.params.quizid;
   console.log(quizId);
-  quizQueries.getSelectedQuiz(quizId).
-  then((result) => {
+  quizQueries.getSelectedQuiz(quizId)
+  .then((result) => {
     const quizQuestions = result;
     console.log(quizQuestions);
     res.render("quiz_take",
-    {questions: quizQuestions});
+    {quizzes: quizQuestions});
   });
 });
 
