@@ -50,6 +50,10 @@ router.get('/:userid/quizzes', (req, res) => {
 
 // SHOW MY QUIZ RESULT - render page for indiviudal quiz result user has taken
 router.get('/:userid/quizzes/:quizid', (req, res) => {
+  const userId = req.params.userid;
+  const quizId = req.params.quizid;
+  console.log(userId);
+  console.log(quizId);
   res.render('user_quiz_result');
 })
 
