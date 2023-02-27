@@ -10,16 +10,16 @@ const getQuizzes = () => {
 };
 
 // get individual quiz from quizzes table when user clicks on a quiz - show quiz questions and options (VIEW QUIZ)
-const getSelectedQuiz = function(quiz_id) {
-  return db.query('SELECT quizzes.id, title, description, quiz_questions.* FROM quiz_questions JOIN quizzes ON quiz_id = quizzes.id')
+const getSelectedQuiz = function(quizId) {
+  const queryParams = [quizId];
+  const parameterizedQuery = 'SELECT quizzes.id, title, description, quiz_questions.* FROM quiz_questions JOIN quizzes ON quiz_id = quizzes.id WHERE quizzes.id = $1'
+  return db.query(parameterizedQuery, queryParams)
   .then(data => {
-    const quizData = data.rows[0];
-    return quizData; //will make this function parameterized based on whatever quiz_id is, just wanted to make sure it works
+    return data.rows;
   })
 }
 
 // insert results to quiz_results table after user has taken quiz (VIEW QUIZ)
-
 const addQuizResult = function(quizResultData) {
   const queryParams = [quizResultData.id, quizResultData.quiz_id, quizResultData.user_id, quizResultData.score, quizResultData.completed_at, quizResultData.link];
   const parameterizedQuery = 'INSERT INTO quiz_results VALUES ($1, $2, $3, $4, $5, $6)';
