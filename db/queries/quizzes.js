@@ -5,9 +5,7 @@ const db = require('../connection');
 const getQuizzes = () => {
   return db.query('SELECT * FROM quizzes')
     .then(data => {
-      const allQuizzes = data.rows;
-      console.log(data.rows);
-      return allQuizzes;
+      return data.rows;
     });
 };
 
