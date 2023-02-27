@@ -48,22 +48,32 @@ router.post('/',(req,res) => {
 
 })
 
-
 // VIEW QUIZ - show single quiz for user to attempt
 router.get('/:quizid', (req, res) => {
   // query should return an object
-  const quizId = req.params.quizid
+  const quizId = req.params.quizid;
   quizQueries.getSelectedQuiz(quizId)
   .then(quiz => {
     const templateVars = quiz;
     console.log(templateVars);
-    res.render('quiz_view', templateVars);
+    res.render('quiz_take', templateVars);
   })
 
 })
 
 // VIEW QUIZ - send quiz results to DB
 router.post('/:quizid', (req, res) => {
+  const quizId = req.params.quizid;
+  console.log(quizId);
+
+  quizQueries.addQuizResult(quizId)
+  .then(quizResult => {
+    console.log(quizResult);
+    if (!quizResult) {
+      res.send('error');
+      return;
+    }
+  })
 
 })
 
