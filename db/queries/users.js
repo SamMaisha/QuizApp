@@ -4,7 +4,7 @@ const db = require('../connection');
 // get quiz results for user from quiz_results table (QUIZ RESULT)
 const getQuizResultsForUser = function(userId) {
     const queryParams = [userId];
-    const parameterizedQuery = 'SELECT quiz_results.*, quizzes.title FROM quiz_results JOIN quizzes ON quiz_id = quizzes.id WHERE user_id = $1'
+    const parameterizedQuery = 'SELECT quiz_results.*, quizzes.title as quiz_title FROM quiz_results JOIN quizzes ON quiz_id = quizzes.id WHERE user_id = $1'
     return db.query(parameterizedQuery,queryParams)
       .then(data => {
         const quizResults = data.rows;
@@ -25,4 +25,4 @@ const getQuizzesCreatedByUser = function(user) {
       });
 }
 
-module.exports = { getQuizResultsForUser, getQuizzesCreatedByUser}
+module.exports = { getQuizResultsForUser, getQuizzesCreatedByUser };
