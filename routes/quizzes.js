@@ -10,6 +10,7 @@ const router = express.Router();
 const quizQueries = require("../db/queries/quizzes");
 
 // HOMEPAGE - show list of public quizzes
+// NOTE - tested end to end - everything checks out
 router.get("/", (req, res) => {
   //query returns an array of objects
   quizQueries
@@ -48,13 +49,16 @@ router.post("/", (req, res) => {
 });
 
 // VIEW QUIZ - show single quiz for user to attempt
+// NOTE: (route is interacting with DB just fine - there is an issue in the ejs file)
 router.get("/:quizid", (req, res) => {
-  // query should return an object
   const quizId = req.params.quizid;
-  quizQueries.getSelectedQuiz(quizId).then((quiz) => {
-    const templateVars = quiz;
-    console.log(templateVars);
-    res.render("quiz_take", templateVars);
+  console.log(quizId);
+  quizQueries.getSelectedQuiz(quizId).
+  then((result) => {
+    const quizQuestions = result;
+    console.log(quizQuestions);
+    res.render("quiz_take",
+    {questions: quizQuestions});
   });
 });
 
