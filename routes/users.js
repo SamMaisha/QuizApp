@@ -29,6 +29,14 @@ router.get('/:userid/results', (req, res) => {
 
 // MY QUIZZES - render page to show list of quizzes user has created
 router.get('/:userid/quizzes', (req, res) => {
+  const userId = req.params.userid
+  console.log(userId);
+  // query will return array of objects
+  userQueries.getQuizzesCreatedByUser(userId)
+  .then(quizzes => {
+    const tempVar = quizzes;
+    console.log(tempVar);
+  })
   res.render('user_quizzes');
 })
 
