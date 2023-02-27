@@ -17,7 +17,11 @@ router.get('/:userid/results', (req, res) => {
   // pass results into templateVars
   userQueries.getQuizResultsForUser(userId)
   .then(result => {
-    res.send(result);
+    console.log(result);
+    const quizResult = result
+    res.render('user_quiz_result', {
+      result: quizResult
+    })
   })
   .catch(err => {
     console.log(err);
