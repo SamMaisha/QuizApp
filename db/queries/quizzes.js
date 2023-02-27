@@ -3,9 +3,10 @@ const db = require('../connection');
 
 // get all public quizzes from quizzes table (HOMEPAGE)
 const getQuizzes = () => {
-  return db.query('SELECT * FROM quizzes;')
+  return db.query('SELECT * FROM quizzes')
     .then(data => {
       const allQuizzes = data.rows;
+      console.log(data.rows);
       return allQuizzes;
     });
 };
