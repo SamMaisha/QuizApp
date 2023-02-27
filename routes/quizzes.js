@@ -11,14 +11,13 @@ const quizQueries = require("../db/queries/quizzes");
 
 // HOMEPAGE - show list of public quizzes
 router.get("/", (req, res) => {
-  // query returns an array of objects
+  //query returns an array of objects
   quizQueries
     .getQuizzes()
-    .then((quizzes) => {
-      const publicQuizzes = quizzes;
-      console.log(quizzes);
+    .then((result) => {
+      const quizzes = result;
       res.render("index", {
-        quizzes: publicQuizzes,
+        quizzes: quizzes
       });
     })
     .catch((err) => {
