@@ -11,13 +11,20 @@ const userQueries = require('../db/queries/users');
 
 // QUIZ RESULTS - render page for list of quizzes and results user has taken
 router.get('/:userid/results', (req, res) => {
+  const userId = req.params.userid
+  console.log(userId);
   // query returns a list of quizzes, results and result links as an array of objects
   // pass results into templateVars
-  userQueries.getQuizResultsForUser()
-  .then()
-  .catch()
+  userQueries.getQuizResultsForUser(userId)
+  .then(result => {
+    res.send(result);
+  })
+  .catch(err => {
+    console.log(err);
+    res.send(err);
+  })
 
-  res.render('user_results');
+  //res.render('user_results');
 });
 
 // MY QUIZZES - render page to show list of quizzes user has created
@@ -54,6 +61,8 @@ router.get('/:userid/quizzes/:quizid', (req, res) => {
   const quizId = req.params.quizid;
   console.log(userId);
   console.log(quizId);
+  // interact with query to fetch quiz result for user -- need to add query for this
+
   res.render('user_quiz_result');
 })
 
