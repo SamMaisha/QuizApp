@@ -19,8 +19,8 @@ router.get('/:userid/results', (req, res) => {
   .then(result => {
     console.log(result);
     const quizResult = result
-    res.render('user_quiz_result', {
-      result: quizResult
+    res.render('user_results', {
+      results: quizResult
     })
   })
   .catch(err => {
