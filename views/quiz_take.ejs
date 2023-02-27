@@ -34,14 +34,48 @@
     <body>
       <h1><%= quizzes.title %></h1>
       <h2><%= quizzes.description %></h2>
-      <h3><%= users.name %></h3>
-      <h4><%= quizzes.category %></h4>
+      <h3><%= quizzes.owner_name %></h3>
+      <h4><%= quizzes.type %></h4>
 
-      <form action="/:quizid" method="GET">
+      <% quizzes.forEach((question) => { %>
+
+      <form action="quizzes/<%= question.quiz_id%>" method="GET">
+        <div class="quiz-container" id="quiz">
+          <h2 id="question">Question 1</h2>
+          <img src="<%= question.photo_url %>" />
+          <p><%= question.question %></p>
+          <ol type="a">
+            <li>
+              <input type="radio" name="1answer" id="a" class="answer" /><%=
+              quiz_questions[0].answer[0] %><br />
+              <label for="a" id="a_text">Question</label>
+            </li>
+
+            <li>
+              <input type="radio" name="1answer" id="b" class="answer" />
+              <label for="b" id="b_text">Question</label>
+            </li>
+
+            <li>
+              <input type="radio" name="1answer" id="c" class="answer" />
+              <label for="c" id="c_text">Question</label>
+            </li>
+
+            <li>
+              <input type="radio" name="1answer" id="d" class="answer" />
+              <label for="d" id="d_text">Question</label>
+            </li>
+          </ol>
+        </div>
+      </form>
+
+      <% }) %>
+
+      <form action="quizzes/<%= quizzes.quiz_id%>" method="GET">
         <div class="quiz-container" id="quiz">
           <h2 id="question">Question 1</h2>
           <img src="<%= quiz_questions[0].photo_url %>" />
-          <p><%= quiz_questions[0].question %></p>
+          <p><%= quizzes[0].question %></p>
           <ol type="a">
             <li>
               <input type="radio" name="1answer" id="a" class="answer" /><%=
