@@ -1,83 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz Wiz</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Wiz</title>
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <link href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Roboto:ital,wght@0,100;0,400;1,400&display=swap"
-    rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Roboto:ital,wght@0,100;0,400;1,400&display=swap"
+      rel="stylesheet"
+    />
 
-  <script src="/vendor/jquery-3.0.0.js"></script>
-  <script src="/scripts/app.js"></script>
-  <script src="https://kit.fontawesome.com/53038575dd.js" crossorigin="anonymous"></script>
-</head>
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script src="/scripts/app.js"></script>
+    <script
+      src="https://kit.fontawesome.com/53038575dd.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body>
-
+  <body>
     <% include partials/_header %>
 
-  <main>
-  <section class="hero">
-    <img src="/images/business-partnership.png" class="hero-img" alt="Business Partnership">
-    <div class="hero-text">
-      <h3>Want to put your friend's knowledge to the test?</h3>
-      <h4>Create custom quizzes and challenge your friends!</h4>
-      <a href="/quizzes/create"><button>Create a Quiz</button></a>
-    </div>
-  </section>
-
-  <form action="/:quizid" method="GET" class="quiz-display">
-    <h3 class="title">Or, maybe you are a trivia master looking for a challenge.</h3>
-    <h4 class="title">Choose a quiz and see how much you know!</h4>
-
-      <div class="quiz-cards">
-
-        <div class="column">
-          <div class="icon-container">
-            <i class="fa-sharp fa-solid fa-question fa-5x"></i>
-          </div>
-          <a href="/quizzes/1"><h3>Quiz</h3></a>
-          <p>Quiz Author</p>
-          <p>Quiz Description</p>
+    <main>
+      <section class="hero">
+        <img
+          src="/images/business-partnership.png"
+          class="hero-img"
+          alt="Business Partnership"
+        />
+        <div class="hero-text">
+          <h3>Want to put your friend's knowledge to the test?</h3>
+          <h4>Create custom quizzes and challenge your friends!</h4>
+          <a href="/quizzes/create"><button>Create a Quiz</button></a>
         </div>
+      </section>
 
-        <div class="column">
-          <div class="icon-container">
-            <i class="fa-sharp fa-solid fa-question fa-5x"></i>
+      <form action="/:quizid" method="GET" class="quiz-display">
+        <h3 class="title">
+          Or, maybe you are a trivia master looking for a challenge.
+        </h3>
+        <h4 class="title">Choose a quiz and see how much you know!</h4>
+
+        <div class="quiz-cards">
+          <% quizzes.forEach((quiz) => { %>
+          <div class="column">
+            <div class="icon-container">
+              <i class="fa-sharp fa-solid fa-question fa-5x"></i>
+            </div>
+            <a href="/quizzes/<%= quiz.id %>""><h3><%= quiz.title %> </h3></a>
+            <p>Quiz Author</p>
+            <p><%= quiz.description %></p>
           </div>
-          <a href="/quizzes/2"><h3>Quiz</h3></a>
-          <p>Quiz Author</p>
-          <p>Quiz Description</p>
+          <% }) %>
         </div>
+      </form>
 
-        <div class="column">
-          <div class="icon-container">
-            <i class="fa-sharp fa-solid fa-question fa-5x"></i>
-          </div>
-          <a href="/quizzes/3">
-            <h3>Quiz</h3>
-          </a>
-          <p>Quiz Author</p>
-          <p>Quiz Description</p>
-        </div>
-      </div>
-    </form>
+      <section class="tbd"></section>
+    </main>
 
-  <section class="tbd"></section>
-
-  </main>
-
-<% include partials/_footer %>
-
-</body>
+    <% include partials/_footer %>
+  </body>
 </html>
