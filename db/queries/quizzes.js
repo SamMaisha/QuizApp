@@ -3,7 +3,7 @@ const db = require('../connection');
 
 // get all public quizzes from quizzes table (HOMEPAGE)
 const getQuizzes = () => {
-  return db.query('SELECT * FROM quizzes')
+  return db.query('SELECT * FROM quizzes WHERE is_public IS TRUE')
     .then(data => {
       return data.rows;
     });
