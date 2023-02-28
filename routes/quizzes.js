@@ -8,7 +8,7 @@
 const express = require("express");
 const router = express.Router();
 const quizQueries = require("../db/queries/quizzes");
-const { pushAnswersIntoQuestionObject } = require("../functions/helper");
+const { pushAnswersIntoQuestionObject, calculateQuizScore } = require("../functions/helper");
 
 // HOMEPAGE - show list of public quizzes
 // NOTE - tested end to end - everything checks out
@@ -54,14 +54,18 @@ router.post("/", (req, res) => {
 
 router.get("/:quizid", (req, res) => {
   const quizId = req.params.quizid;
+  //console.log('QUIZ ID', quizId);
   quizQueries.getSelectedQuiz(quizId).
   then((resultQuestions) => {
     const quizQuestions = resultQuestions;
+    //console.log('QUIZ QUESTION', quizQuestions);
+
     quizQueries.getAnswersForSelectedQuiz(quizId)
     .then((resultAnswers) => {
       const quizAnswers = resultAnswers;
-      const quizQuestionsAnswers = pushAnswersIntoQuestionObject(quizQuestions, quizAnswers)
-      console.log(quizQuestionsAnswers[0]);
+      //console.log('QUIZ ANSWERS:', quizAnswers)
+      const quizQuestionsAnswers = pushAnswersIntoQuestionObject(quizQuestions, quizAnswers);
+      // console.log('QUIZZES:', quizQuestionsAnswers)
       res.render("quiz_take",
     {quizzes: quizQuestionsAnswers
     });
@@ -72,15 +76,27 @@ router.get("/:quizid", (req, res) => {
 // VIEW QUIZ - send quiz results to DB
 router.post("/:quizid", (req, res) => {
   const quizId = req.params.quizid;
-  console.log(quizId);
+  console.log("QUIZ ID:",quizId);
 
-  quizQueries.addQuizResult(quizId).then((quizResult) => {
-    console.log(quizResult);
-    if (!quizResult) {
-      res.send("error");
-      return;
-    }
-  });
+  // get users answers and compare it to correct answer
+  const userAnswers = req.body;
+  quizQueries.getCorrectAnswerForQuiz(quizId).then((result) => {
+    const correctAnswers = result;
+    const QuizScore = calculateQuizScore(correctAnswers, userAnswers);
+    console.log(QuizScore);
+
+  })
+
+
+
+
+  // quizQueries.addQuizResult(quizId).then((quizResult) => {
+  //   console.log(quizResult);
+  //   if (!quizResult) {
+  //     res.send("error");
+  //     return;
+  //   }
+  // });
 });
 
 // MY QUIZZES - post route to delete a quiz {POST MVP}
