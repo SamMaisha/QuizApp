@@ -21,7 +21,7 @@ const getSelectedQuiz = function(quizId) {
     });
 };
 
-//create new query for answers to questions (pass through question_id, quiz_id,) -- Answer check may have to be different (not boolean based)
+//create new query for answers to questions (pass through quizId,) -- Answer check may have to be different (not boolean based)
 const getAnswersForSelectedQuiz = function(quizId) {
   const queryParams = [quizId];
   const parameterizedQuery = `SELECT quiz_answers.* FROM quiz_answers WHERE quiz_id = $1`;
@@ -30,6 +30,20 @@ const getAnswersForSelectedQuiz = function(quizId) {
       const selectedAnswers = data.rows;
       return selectedAnswers;
     })
+}
+
+// get correct answers for a quizId
+const getCorrectAnswerForQuiz = function(quizId) {
+  const queryParams = [quizId];
+  const parameterizedQuery = `
+  SELECT quiz_answers.* FROM quiz_answers
+  WHERE quiz_id = $1
+  AND is_correct IS TRUE
+  `
+  return db.query(parameterizedQuery, queryParams)
+  .then(data => {
+    return data.rows;
+  })
 }
 
 // insert results to quiz_results table after user has taken quiz (VIEW QUIZ)
@@ -47,4 +61,4 @@ const addNewQuiz = function(newQuizData) {
 }
 
 
-module.exports = { getQuizzes, getSelectedQuiz, getAnswersForSelectedQuiz ,addQuizResult, addNewQuiz };
+module.exports = { getQuizzes, getSelectedQuiz, getAnswersForSelectedQuiz , getCorrectAnswerForQuiz,addQuizResult, addNewQuiz };
