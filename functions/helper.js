@@ -30,6 +30,14 @@ const calculateQuizScore = (answersArray, inputObject) => {
   return score;
 }
 
+// return boolean value true if quiz is public
+const returnBooleanIsPublic = (privacy) => {
+  if (privacy === 'private') {
+    return false;
+  }
+  return true;
+}
+
 // og function
 const pushAnswerIntoQuestion = (array1, array2) => {
   const updatedArray = array1.map(x => {
@@ -43,4 +51,4 @@ const pushAnswerIntoQuestion = (array1, array2) => {
   })
   return updatedArray;
 }
-module.exports = { pushAnswersIntoQuestionObject, calculateQuizScore }
+module.exports = { pushAnswersIntoQuestionObject, calculateQuizScore, returnBooleanIsPublic }
