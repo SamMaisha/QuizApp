@@ -8,7 +8,7 @@
 const express = require("express");
 const router = express.Router();
 const quizQueries = require("../db/queries/quizzes");
-const { pushAnswerIntoQuestionObject } = require("../functions/helper");
+const { pushAnswersIntoQuestionObject } = require("../functions/helper");
 
 // HOMEPAGE - show list of public quizzes
 // NOTE - tested end to end - everything checks out
@@ -54,18 +54,16 @@ router.post("/", (req, res) => {
 
 router.get("/:quizid", (req, res) => {
   const quizId = req.params.quizid;
-  console.log(quizId);
   quizQueries.getSelectedQuiz(quizId).
   then((resultQuestions) => {
     const quizQuestions = resultQuestions;
-    console.log(quizQuestions);
     quizQueries.getAnswersForSelectedQuiz(quizId)
     .then((resultAnswers) => {
       const quizAnswers = resultAnswers;
-      console.log(quizAnswers);
-      //const actualTemplateVar = pushAnswerIntoQuestion(quizQuestions, quizAnswers)
+      const quizQuestionsAnswers = pushAnswersIntoQuestionObject(quizQuestions, quizAnswers)
+      console.log(quizQuestionsAnswers[0]);
       res.render("quiz_take",
-    {actualTemplateVar
+    {quizzes: quizQuestionsAnswers
     });
     })
   });
