@@ -27,21 +27,22 @@ router.get('/:userid/results', (req, res) => {
     console.log(err);
     res.send(err);
   })
-
-  //res.render('user_results');
 });
 
 // MY QUIZZES - render page to show list of quizzes user has created
 router.get('/:userid/quizzes', (req, res) => {
-  const userId = req.params.userid
+  const userId = req.params.userid;
   console.log(userId);
   // query will return array of objects
   userQueries.getQuizzesCreatedByUser(userId)
-  .then(quizzes => {
-    const tempVar = quizzes;
-    console.log(tempVar);
+  .then(result => {
+    console.log(result);
+    const quizzes = result;
+    res.render('user_quizzes', {
+      quizzes: quizzes
+    });
   })
-  res.render('user_quizzes');
+
 })
 
 // SHOW MY QUIZ RESULT - render page for indiviudal quiz result user has taken
