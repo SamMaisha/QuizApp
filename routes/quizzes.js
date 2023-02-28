@@ -8,6 +8,7 @@
 const express = require("express");
 const router = express.Router();
 const quizQueries = require("../db/queries/quizzes");
+const { pushAnswersIntoQuestionObject } = require("../functions/helper");
 
 // HOMEPAGE - show list of public quizzes
 // NOTE - tested end to end - everything checks out
@@ -50,15 +51,21 @@ router.post("/", (req, res) => {
 
 // VIEW QUIZ - show single quiz for user to attempt
 // NOTE: (route is interacting with DB just fine - there is an issue in the ejs file)
+
 router.get("/:quizid", (req, res) => {
   const quizId = req.params.quizid;
-  console.log(quizId);
   quizQueries.getSelectedQuiz(quizId).
-  then((result) => {
-    const quizQuestions = result;
-    console.log(quizQuestions);
-    res.render("quiz_take",
-    {questions: quizQuestions});
+  then((resultQuestions) => {
+    const quizQuestions = resultQuestions;
+    quizQueries.getAnswersForSelectedQuiz(quizId)
+    .then((resultAnswers) => {
+      const quizAnswers = resultAnswers;
+      const quizQuestionsAnswers = pushAnswersIntoQuestionObject(quizQuestions, quizAnswers)
+      console.log(quizQuestionsAnswers[0]);
+      res.render("quiz_take",
+    {quizzes: quizQuestionsAnswers
+    });
+    })
   });
 });
 

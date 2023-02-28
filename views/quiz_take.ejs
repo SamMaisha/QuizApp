@@ -16,11 +16,14 @@
 
     <link
       href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Roboto:ital,wght@0,100;0,400;1,400&display=swap"
-      rel="stylesheet"/>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500&family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script src="/scripts/app.js"></script>
@@ -36,158 +39,199 @@
     <body>
       <h1><%= quizzes.title %></h1>
       <h2><%= quizzes.description %></h2>
-      <h3><%= users.name %></h3>
-      <h4><%= quizzes.category %></h4>
+      <h3><%= quizzes.owner_name %></h3>
+      <h4><%= quizzes.type %></h4>
 
-      <form action="/:quizid" method="GET">
+      <form action="quizzes/:quizid" method="POST">
+        <!-- Question 1 -->
+
         <div class="quiz-container" id="quiz">
           <h2 id="question">Question 1</h2>
-          <img src="<%= quiz_questions[0].photo_url %>" />
-          <p><%= quiz_questions[0].question %></p>
+          <img src="<%= quizzes[0].photo_url %>" />
+          <p><%= quizzes[0].question %></p>
           <ol type="a">
             <li>
-              <input type="radio" name="1answer" id="a" class="answer" /><%=
-              quiz_questions[0].answer[0] %><br />
-              <label for="a" id="a_text">Question</label>
+              <input type="radio" name="1answer" id="a" class="answer" />
+              <label for="a" id="a_text"
+                ><%= quizzes[0].answers[0].answer %></label
+              >
             </li>
 
             <li>
               <input type="radio" name="1answer" id="b" class="answer" />
-              <label for="b" id="b_text">Question</label>
+              <label for="b" id="b_text"
+                ><%= quizzes[0].answers[1].answer %></label
+              >
             </li>
 
             <li>
               <input type="radio" name="1answer" id="c" class="answer" />
-              <label for="c" id="c_text">Question</label>
+              <label for="c" id="c_text"
+                ><%= quizzes[0].answers[2].answer %></label
+              >
             </li>
 
             <li>
               <input type="radio" name="1answer" id="d" class="answer" />
-              <label for="d" id="d_text">Question</label>
+              <label for="d" id="d_text"
+                ><%= quizzes[0].answers[3].answer %></label
+              >
             </li>
           </ol>
         </div>
+
+        <!-- Question 2 -->
+
+        <div class="quiz-container" id="quiz">
+          <h2 id="question">Question 2</h2>
+          <img src="<%= quizzes[1].photo_url %>" />
+          <p><%= quizzes[1].question %></p>
+          <ol type="a">
+            <li>
+              <input type="radio" name="2answer" id="a" class="answer" />
+              <label for="a" id="a_text"
+                ><%= quizzes[1].answers[0].answer %></label
+              >
+            </li>
+
+            <li>
+              <input type="radio" name="2answer" id="b" class="answer" />
+              <label for="b" id="b_text"
+                ><%= quizzes[1].answers[1].answer %></label
+              >
+            </li>
+
+            <li>
+              <input type="radio" name="2answer" id="c" class="answer" />
+              <label for="c" id="c_text"
+                ><%= quizzes[1].answers[2].answer %></label
+              >
+            </li>
+
+            <li>
+              <input type="radio" name="2answer" id="d" class="answer" />
+              <label for="d" id="d_text"
+                ><%= quizzes[1].answers[3].answer %></label
+              >
+            </li>
+          </ol>
+        </div>
+
+        <!-- Question 3 -->
+
+        <div class="quiz-container" id="quiz">
+          <h2 id="question">Question 3</h2>
+          <img src="<%= quizzes[2].photo_url %>" />
+          <p><%= quizzes[2].question %></p>
+          <ol type="a">
+            <li>
+              <input type="radio" name="3answer" id="a" class="answer" />
+              <label for="a" id="a_text"
+                ><%= quizzes[2].answers[0].answer %></label
+              >
+            </li>
+
+            <li>
+              <input type="radio" name="3answer" id="b" class="answer" />
+              <label for="b" id="b_text"
+                ><%= quizzes[2].answers[1].answer %></label
+              >
+            </li>
+
+            <li>
+              <input type="radio" name="3answer" id="c" class="answer" />
+              <label for="c" id="c_text"
+                ><%= quizzes[2].answers[2].answer %></label
+              >
+            </li>
+
+            <li>
+              <input type="radio" name="3answer" id="d" class="answer" />
+              <label for="d" id="d_text"
+                ><%= quizzes[2].answers[3].answer %></label
+              >
+            </li>
+          </ol>
+        </div>
+
+        <!-- Question 4 -->
+
+        <div class="quiz-container" id="quiz">
+          <h2 id="question">Question 4</h2>
+          <img src="<%= quizzes[3].photo_url %>" />
+          <p><%= quizzes[3].question %></p>
+          <ol type="a">
+            <li>
+              <input type="radio" name="4answer" id="a" class="answer" />
+              <label for="a" id="a_text"
+                ><%= quizzes[3].answers[0].answer %></label
+              >
+            </li>
+
+            <li>
+              <input type="radio" name="4answer" id="b" class="answer" />
+              <label for="b" id="b_text"
+                ><%= quizzes[3].answers[1].answer %></label
+              >
+            </li>
+
+            <li>
+              <input type="radio" name="4answer" id="c" class="answer" />
+              <label for="c" id="c_text"
+                ><%= quizzes[3].answers[2].answer %></label
+              >
+            </li>
+
+            <li>
+              <input type="radio" name="4answer" id="d" class="answer" />
+              <label for="d" id="d_text"
+                ><%= quizzes[3].answers[3].answer %></label
+              >
+            </li>
+          </ol>
+        </div>
+
+        <!-- Question 5 -->
+
+        <div class="quiz-container" id="quiz">
+          <h2 id="question">Question 5</h2>
+          <img src="<%= quizzes[4].photo_url %>" />
+          <p><%= quizzes[4].question %></p>
+          <ol>
+            <li>
+              <input type="radio" name="5answer" id="a" class="answer" />
+              <label for="a" id="a_text"
+                ><%= quizzes[4].answers[0].answer %></label
+              >
+            </li>
+
+            <li>
+              <input type="radio" name="5answer" id="b" class="answer" />
+              <label for="b" id="b_text"
+                ><%= quizzes[4].answers[1].answer %></label
+              >
+            </li>
+
+            <li>
+              <input type="radio" name="5answer" id="c" class="answer" />
+              <label for="c" id="c_text"
+                ><%= quizzes[4].answers[2].answer %></label
+              >
+            </li>
+
+            <li>
+              <input type="radio" name="5answer" id="d" class="answer" />
+              <label for="d" id="d_text"
+                ><%= quizzes[4].answers[3].answer %></label
+              >
+            </li>
+          </ol>
+        </div>
+
+        <div class="submit">
+          <button id="submit">Submit</button>
+        </div>
       </form>
-
-      <!-- Question 2 -->
-
-      <div class="quiz-container" id="quiz">
-        <h2 id="question">Question 2</h2>
-        <img src="<%= quiz_questions[1].photo_url %>" />
-        <p><%= quiz_questions[1].question %></p>
-        <ol type="a">
-          <li>
-            <input type="radio" name="2answer" id="a" class="answer" />
-            <label for="a" id="a_text">Question</label>
-          </li>
-
-          <li>
-            <input type="radio" name="2answer" id="b" class="answer" />
-            <label for="b" id="b_text">Question</label>
-          </li>
-
-          <li>
-            <input type="radio" name="2answer" id="c" class="answer" />
-            <label for="c" id="c_text">Question</label>
-          </li>
-
-          <li>
-            <input type="radio" name="2answer" id="d" class="answer" />
-            <label for="d" id="d_text">Question</label>
-          </li>
-        </ol>
-      </div>
-
-      <!-- Question 3 -->
-
-      <div class="quiz-container" id="quiz">
-        <h2 id="question">Question 3</h2>
-        <img src="<%= quiz_questions[2].photo_url %>" />
-        <p><%= quiz_questions[2].question %></p>
-        <ol type="a">
-          <li>
-            <input type="radio" name="3answer" id="a" class="answer" />
-            <label for="a" id="a_text">Question</label>
-          </li>
-
-          <li>
-            <input type="radio" name="3answer" id="b" class="answer" />
-            <label for="b" id="b_text">Question</label>
-          </li>
-
-          <li>
-            <input type="radio" name="3answer" id="c" class="answer" />
-            <label for="c" id="c_text">Question</label>
-          </li>
-
-          <li>
-            <input type="radio" name="3answer" id="d" class="answer" />
-            <label for="d" id="d_text">Question</label>
-          </li>
-        </ol>
-      </div>
-
-      <!-- Question 4 -->
-
-      <div class="quiz-container" id="quiz">
-        <h2 id="question">Question 4</h2>
-        <img src="<%= quiz_questions[3].photo_url %>" />
-        <p><%= quiz_questions[3].question %></p>
-        <ol type="a">
-          <li>
-            <input type="radio" name="4answer" id="a" class="answer" />
-            <label for="a" id="a_text">Question</label>
-          </li>
-
-          <li>
-            <input type="radio" name="4answer" id="b" class="answer" />
-            <label for="b" id="b_text">Question</label>
-          </li>
-
-          <li>
-            <input type="radio" name="4answer" id="c" class="answer" />
-            <label for="c" id="c_text">Question</label>
-          </li>
-
-          <li>
-            <input type="radio" name="4answer" id="d" class="answer" />
-            <label for="d" id="d_text">Question</label>
-          </li>
-        </ol>
-      </div>
-
-      <!-- Question 5 -->
-
-      <div class="quiz-container" id="quiz">
-        <h2 id="question">Question 5</h2>
-        <img src="<%= quiz_questions[0].photo_url %>" />
-        <p><%= quiz_questions[0].question %></p>
-        <ol>
-          <li>
-            <input type="radio" name="5answer" id="a" class="answer" />
-            <label for="a" id="a_text">Question</label>
-          </li>
-
-          <li>
-            <input type="radio" name="5answer" id="b" class="answer" />
-            <label for="b" id="b_text">Question</label>
-          </li>
-
-          <li>
-            <input type="radio" name="5answer" id="c" class="answer" />
-            <label for="c" id="c_text">Question</label>
-          </li>
-
-          <li>
-            <input type="radio" name="5answer" id="d" class="answer" />
-            <label for="d" id="d_text">Question</label>
-          </li>
-        </ol>
-      </div>
-
-      <div class="submit">
-        <button id="submit">Submit</button>
-      </div>
     </body>
     <% include partials/_footer %>
   </body>
