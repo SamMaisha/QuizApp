@@ -8,7 +8,7 @@
 const express = require("express");
 const router = express.Router();
 const quizQueries = require("../db/queries/quizzes");
-const { pushAnswersIntoQuestionObject, calculateQuizScore } = require("../functions/helper");
+const { pushAnswersIntoQuestionObject, calculateQuizScore, returnBooleanIsPublic } = require("../functions/helper");
 
 // HOMEPAGE - show list of public quizzes
 // NOTE - tested end to end - everything checks out
@@ -38,6 +38,26 @@ router.post("/", (req, res) => {
   //parse body for submitted quiz
   const newQuiz = req.body;
   console.log(newQuiz);
+
+  // values to pass into addNewQuiz query
+
+  const quizTitle = newQuiz["quiz-title"]
+  console.log(quizTitle);
+  const quizDescription = newQuiz["quiz-description"]
+  console.log(quizDescription);
+  const quizType = newQuiz["quiz-type"]
+  console.log(quizType);
+  const userID = 1; //NEED THIS INFO !!!
+  const isPublic = returnBooleanIsPublic(newQuiz.privacy);
+  console.log(isPublic);
+
+
+
+
+
+
+
+
   // quizQueries.addNewQuiz(newQuiz)
   // .then(quiz => {
   //   if (!quiz) {
@@ -84,29 +104,18 @@ router.post("/:quizid", (req, res) => {
   quizQueries.getCorrectAnswerForQuiz(quizId).then((result) => {
     const correctAnswers = result;
     const quizScore = calculateQuizScore(correctAnswers, userAnswers);
-    console.log(quizScore);
+    //console.log(quizScore);
     // RESULT LINK NEEDS TO BE UPDATED WITH USERID !!!!!!!!!!!!
     const quizResultLink = `http://localhost:8080/users/1/quizzes/${quizId}`;
     quizQueries.addQuizResult(quizId, 1, quizScore, quizResultLink)
     .then((quizResult) => {
-      console.log(quizResult);
+      //console.log(quizResult);
       if (!quizResult) {
         res.send("Oops! It appears that something has gone wrong")
       }
       res.redirect('/quizzes');
     })
   })
-
-
-
-
-  // quizQueries.addQuizResult(quizId).then((quizResult) => {
-  //   console.log(quizResult);
-  //   if (!quizResult) {
-  //     res.send("error");
-  //     return;
-  //   }
-  // });
 });
 
 // MY QUIZZES - post route to delete a quiz {POST MVP}
