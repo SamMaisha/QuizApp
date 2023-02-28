@@ -58,7 +58,7 @@ router.get("/:quizid", (req, res) => {
     const quizQuestions = result;
     console.log(quizQuestions);
     res.render("quiz_take",
-    {questions: quizQuestions});
+    {quizzes: quizQuestions});
   });
 });
 
