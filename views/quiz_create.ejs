@@ -1,37 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizzes with Friends</title>
 
-<head>
-  <title>Quiz App</title>
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
 
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Roboto:ital,wght@0,100;0,400;1,400&display=swap"
+      rel="stylesheet"/>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Roboto:ital,wght@0,100;0,400;1,400&display=swap" rel="stylesheet">
 
-  <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
-
-  <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
-  <script src="https://kit.fontawesome.com/53038575dd.js" crossorigin="anonymous"></script>
-</head>
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script src="/scripts/app.js"></script>
+    <script
+      src="https://kit.fontawesome.com/53038575dd.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
 <body>
 <% include partials/_header %>
 
-<h1 class="create-intro">It's easy to create a quiz on QuizWiz!</h1>
-<h2> Simply write your own questions and possible answers, and check the correct answer for each question.</h2>
+<div class="create-intro">
 
+<h1>It's easy to create a quiz on QuizzesWithFriends!</h1>
+<div class="create-instructions">
+  <div class="create-instructions-1">
+<i class="fa-solid fa-circle-info"></i>
+<h2>Step 1: Give us some basic info about your quiz</h2>
+  </div>
+  <div class="create-instructions-2">
+<i class="fa-solid fa-circle-question"></i>
+<h2> Step 2: write your questions and multiple choice answers</h2>
+  </div>
+  <div class="create-instructions-3">
+<i class="fa-solid fa-circle-dot"></i>
+<h2> Step 3: choose the correct answer to each question</h2>
+  </div>
+  <div class="create-instructions-4">
+<i class="fa-solid fa-share"></i>
+<h2> Step 4: Share your quiz with your friends!</h2>
+</div>
+</div>
+</div>
 
 <div class="quiz-container" id="quiz">
   <div class="question-box">
@@ -132,8 +155,10 @@
 <div class="question-box">
   <h2 class="question">Question 3</h2>
   <input type="text" class="question-text"></input>
-  <h2 class="question">Answers</h2>
+  <div class="create-answers">
+ <h2>Answers</h2>
   <h4>(check the correct answer)</h4>
+</div>
   <ol>
     <li>
       <h3>a.</h3>
@@ -224,8 +249,9 @@
   </ol>
 </div>
 </div>
-
-<button type="button" onclick="addNewQuiz()">Generate Quiz</button>
+<div class="button">
+<button type="submit" class="button" onclick="addNewQuiz()">Generate Quiz</button>
+</div>
 <div id="success.message"></div>
 <div id="shareable-link"></div>
 <div class="tbd"></div>
