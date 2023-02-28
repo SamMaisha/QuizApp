@@ -76,15 +76,25 @@ router.get("/:quizid", (req, res) => {
 // VIEW QUIZ - send quiz results to DB
 router.post("/:quizid", (req, res) => {
   const quizId = req.params.quizid;
+  //const userId = NEED USER ID !!!!!!
   console.log("QUIZ ID:",quizId);
 
   // get users answers and compare it to correct answer
   const userAnswers = req.body;
   quizQueries.getCorrectAnswerForQuiz(quizId).then((result) => {
     const correctAnswers = result;
-    const QuizScore = calculateQuizScore(correctAnswers, userAnswers);
-    console.log(QuizScore);
-
+    const quizScore = calculateQuizScore(correctAnswers, userAnswers);
+    console.log(quizScore);
+    // RESULT LINK NEEDS TO BE UPDATED WITH USERID !!!!!!!!!!!!
+    const quizResultLink = `http://localhost:8080/users/1/quizzes/${quizId}`;
+    quizQueries.addQuizResult(quizId, 1, quizScore, quizResultLink)
+    .then((quizResult) => {
+      console.log(quizResult);
+      if (!quizResult) {
+        res.send("Oops! It appears that something has gone wrong")
+      }
+      res.redirect('/quizzes');
+    })
   })
 
 
