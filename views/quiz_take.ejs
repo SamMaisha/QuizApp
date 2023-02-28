@@ -42,7 +42,7 @@
       <h3><%= quizzes.owner_name %></h3>
       <h4><%= quizzes.type %></h4>
 
-      <form action="quizzes/<%=quizzes.quiz_id%>" method="POST">
+      <form action="/quizzes/<%= quizzes[0].quiz_id %>" method="POST">
         <!-- Question 1 -->
 
         <div class="quiz-container" id="quiz">
