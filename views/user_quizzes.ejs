@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Quiz App</title>
 
-<head>
-  <title>Quiz App</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Roboto:ital,wght@0,100;0,400;1,400&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Roboto:ital,wght@0,100;0,400;1,400&display=swap" rel="stylesheet">
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script defer src="/scripts/app.js"></script>
+  </head>
 
-  <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
-</head>
-
-<body>
-<% include partials/_header %>
-<h2>Your Quizzes</h2>
-<p>instructions for user to see and share their quizzes</p>
-<table class="table">
-  <thead>
-    <th scope="col">Quiz</th>
-    <th scope="col">Share</th>
-    <th scope="col">Delete</th>
-  </thead>
-</table>
-<tbody>
-  <% for (let quiz of quizzes) { %>
-    <tr>
-      <td><a href="/quizzes/<%= quiz.id %>"><%= quiz.title %></a></td>
-      <td><a href="/quizzes/<%= quiz.id %>/share">Share</a></td>
-      <td><a href="/quizzes/<%= quiz.id %>/delete">Delete</a></td>
-    </tr>
-  <% } %>
-</tbody>
-<% include partials/_footer %>
-</body>
+  <body>
+    <% include partials/_header %>
+    <h2>Your Quizzes</h2>
+    <p>instructions for user to see and share their quizzes</p>
+    <table class="table">
+      <thead>
+        <th scope="col">Quiz</th>
+        <th scope="col">Share</th>
+        <th scope="col">Delete</th>
+      </thead>
+    </table>
+    <tbody>
+      <% quizzes.forEach((quiz) => { %>
+      <tr>
+        <td><a href="/quizzes/<%= quiz.id %>"><%= quiz.title %></a></td>
+        <td><a href="/quizzes/<%= quiz.id %>/share">Share</a></td>
+        <td><a href="/quizzes/<%= quiz.id %>/delete">Delete</a></td>
+      </tr>
+      <% }) %>
+    </tbody>
+    <% include partials/_footer %>
+  </body>
 </html>
