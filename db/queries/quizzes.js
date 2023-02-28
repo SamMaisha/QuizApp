@@ -11,8 +11,8 @@ const getQuizzes = () => {
 };
 
 // get individual quiz from quizzes table when user clicks on a quiz - show quiz questions and options (VIEW QUIZ)
-const getSelectedQuiz = function(quiz_id) {
-  const queryParams = [quiz_id];
+const getSelectedQuiz = function(quizId) {
+  const queryParams = [quizId];
   const parameterizedQuery = 'SELECT title, description, quiz_questions.id as question_id, quiz_questions.quiz_id as quiz_id, quiz_questions.question, quiz_questions.photo_url, quizzes.type, users.name as owner_name FROM quiz_questions JOIN quizzes ON quiz_id = quizzes.id JOIN users ON owner_id = users.id WHERE quiz_id = $1';
   return db.query(parameterizedQuery, queryParams)
     .then(data => {
