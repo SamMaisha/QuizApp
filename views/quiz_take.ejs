@@ -43,30 +43,39 @@
       <h4><%= quizzes.type %></h4>
 
       <form action="/:quizid" method="GET">
+        <!-- Question 1 -->
+
         <div class="quiz-container" id="quiz">
           <h2 id="question">Question 1</h2>
           <img src="<%= quizzes[0].photo_url %>" />
           <p><%= quizzes[0].question %></p>
           <ol type="a">
             <li>
-              <input type="radio" name="1answer" id="a" class="answer" /><%=
-              quizzes[0].question %><br />
-              <label for="a" id="a_text">Question</label>
+              <input type="radio" name="1answer" id="a" class="answer" />
+              <label for="a" id="a_text"
+                ><%= quizzes[0].answers[0].answer %></label
+              >
             </li>
 
             <li>
               <input type="radio" name="1answer" id="b" class="answer" />
-              <label for="b" id="b_text">Question</label>
+              <label for="b" id="b_text"
+                ><%= quizzes[0].answers[1].answer %></label
+              >
             </li>
 
             <li>
               <input type="radio" name="1answer" id="c" class="answer" />
-              <label for="c" id="c_text">Question</label>
+              <label for="c" id="c_text"
+                ><%= quizzes[0].answers[2].answer %></label
+              >
             </li>
 
             <li>
               <input type="radio" name="1answer" id="d" class="answer" />
-              <label for="d" id="d_text">Question</label>
+              <label for="d" id="d_text"
+                ><%= quizzes[0].answers[3].answer %></label
+              >
             </li>
           </ol>
         </div>
@@ -81,22 +90,30 @@
         <ol type="a">
           <li>
             <input type="radio" name="2answer" id="a" class="answer" />
-            <label for="a" id="a_text">Question</label>
+            <label for="a" id="a_text"
+              ><%= quizzes[1].answers[0].answer %></label
+            >
           </li>
 
           <li>
             <input type="radio" name="2answer" id="b" class="answer" />
-            <label for="b" id="b_text">Question</label>
+            <label for="b" id="b_text"
+              ><%= quizzes[1].answers[1].answer %></label
+            >
           </li>
 
           <li>
             <input type="radio" name="2answer" id="c" class="answer" />
-            <label for="c" id="c_text">Question</label>
+            <label for="c" id="c_text"
+              ><%= quizzes[1].answers[2].answer %></label
+            >
           </li>
 
           <li>
             <input type="radio" name="2answer" id="d" class="answer" />
-            <label for="d" id="d_text">Question</label>
+            <label for="d" id="d_text"
+              ><%= quizzes[1].answers[3].answer %></label
+            >
           </li>
         </ol>
       </div>
@@ -110,22 +127,30 @@
         <ol type="a">
           <li>
             <input type="radio" name="3answer" id="a" class="answer" />
-            <label for="a" id="a_text">Question</label>
+            <label for="a" id="a_text"
+              ><%= quizzes[2].answers[0].answer %></label
+            >
           </li>
 
           <li>
             <input type="radio" name="3answer" id="b" class="answer" />
-            <label for="b" id="b_text">Question</label>
+            <label for="b" id="b_text"
+              ><%= quizzes[2].answers[1].answer %></label
+            >
           </li>
 
           <li>
             <input type="radio" name="3answer" id="c" class="answer" />
-            <label for="c" id="c_text">Question</label>
+            <label for="c" id="c_text"
+              ><%= quizzes[2].answers[2].answer %></label
+            >
           </li>
 
           <li>
             <input type="radio" name="3answer" id="d" class="answer" />
-            <label for="d" id="d_text">Question</label>
+            <label for="d" id="d_text"
+              ><%= quizzes[2].answers[3].answer %></label
+            >
           </li>
         </ol>
       </div>
@@ -139,22 +164,30 @@
         <ol type="a">
           <li>
             <input type="radio" name="4answer" id="a" class="answer" />
-            <label for="a" id="a_text">Question</label>
+            <label for="a" id="a_text"
+              ><%= quizzes[3].answers[0].answer %></label
+            >
           </li>
 
           <li>
             <input type="radio" name="4answer" id="b" class="answer" />
-            <label for="b" id="b_text">Question</label>
+            <label for="b" id="b_text"
+              ><%= quizzes[3].answers[1].answer %></label
+            >
           </li>
 
           <li>
             <input type="radio" name="4answer" id="c" class="answer" />
-            <label for="c" id="c_text">Question</label>
+            <label for="c" id="c_text"
+              ><%= quizzes[3].answers[2].answer %></label
+            >
           </li>
 
           <li>
             <input type="radio" name="4answer" id="d" class="answer" />
-            <label for="d" id="d_text">Question</label>
+            <label for="d" id="d_text"
+              ><%= quizzes[3].answers[3].answer %></label
+            >
           </li>
         </ol>
       </div>
@@ -168,22 +201,30 @@
         <ol>
           <li>
             <input type="radio" name="5answer" id="a" class="answer" />
-            <label for="a" id="a_text">Question</label>
+            <label for="a" id="a_text"
+              ><%= quizzes[4].answers[0].answer %></label
+            >
           </li>
 
           <li>
             <input type="radio" name="5answer" id="b" class="answer" />
-            <label for="b" id="b_text">Question</label>
+            <label for="b" id="b_text"
+              ><%= quizzes[4].answers[1].answer %></label
+            >
           </li>
 
           <li>
             <input type="radio" name="5answer" id="c" class="answer" />
-            <label for="c" id="c_text">Question</label>
+            <label for="c" id="c_text"
+              ><%= quizzes[4].answers[2].answer %></label
+            >
           </li>
 
           <li>
             <input type="radio" name="5answer" id="d" class="answer" />
-            <label for="d" id="d_text">Question</label>
+            <label for="d" id="d_text"
+              ><%= quizzes[4].answers[3].answer %></label
+            >
           </li>
         </ol>
       </div>
