@@ -47,10 +47,17 @@ const getCorrectAnswerForQuiz = function(quizId) {
 }
 
 // insert results to quiz_results table after user has taken quiz (VIEW QUIZ)
-const addQuizResult = function(quizResultData) {
-  const queryParams = [quizResultData.id, quizResultData.quiz_id, quizResultData.user_id, quizResultData.score, quizResultData.completed_at, quizResultData.link];
-  const parameterizedQuery = 'INSERT INTO quiz_results VALUES ($1, $2, $3, $4, $5, $6)';
-  return db.query(parameterizedQuery, queryParams);
+const addQuizResult = function(quizId, userId, quizScore, resultLink) {
+  const queryParams = [quizId, userId, quizScore, resultLink]
+  const parameterizedQuery = `
+  INSERT INTO quiz_results (quiz_id, user_id, score, link)
+  VALUES ($1, $2, $3, $4)
+  RETURNING *
+  `;
+  return db.query(parameterizedQuery, queryParams)
+  .then(data => {
+    return data.rows;
+  })
 }
 
 // insert new quiz to relevant tables when a user creates a quiz (CREATE QUIZ)
