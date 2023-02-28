@@ -11,6 +11,8 @@ const pushAnswersIntoQuestionObject = (array1, array2) => {
   return updatedQuestionArray;
 }
 
+
+// og function 
 const pushAnswerIntoQuestion = (array1, array2) => {
   const updatedArray = array1.map(x => {
     const questionAnswers = array2.filter(y => {
