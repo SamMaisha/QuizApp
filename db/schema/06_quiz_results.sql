@@ -7,6 +7,6 @@ CREATE TABLE quiz_results (
   quiz_id INTEGER REFERENCES quizzes(id),
   user_id INTEGER REFERENCES users(id),
   score INT DEFAULT 0,
-  completed_at TIMESTAMP,
+  completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   link VARCHAR(255) NOT NULL
 );

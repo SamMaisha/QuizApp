@@ -1,3 +1,4 @@
+// function to push answers query into the quiz questions object -- USED IN GET /quizzes/:quizid
 const pushAnswersIntoQuestionObject = (array1, array2) => {
   const updatedQuestionArray = array1.map(questionObject => {
     const answersArrayForEachQuestion = array2.filter(answersObject => {
@@ -5,14 +6,31 @@ const pushAnswersIntoQuestionObject = (array1, array2) => {
     })
 
     questionObject["answers"] = answersArrayForEachQuestion;
-    console.log("RESULT TEST" ,questionObject);
     return questionObject;
   })
   return updatedQuestionArray;
 }
 
+// function to calculate score for quiz -- USED IN POST /quizzes/:quizid
+const calculateQuizScore = (answersArray, inputObject) => {
+  const userAnswer = Object.values(inputObject);
+  const correctAnswer = [];
+  let score = 0;
+  for (const answers of answersArray) {
+    correctAnswer.push(answers.answer)
+  }
+  console.log(userAnswer);
+  console.log(correctAnswer);
+  for (let i = 0; i < correctAnswer.length; i++) {
+    if (correctAnswer[i] === userAnswer[i]) {
+      score += 1;
+    }
+  }
+  console.log(score);
+  return score;
+}
 
-// og function 
+// og function
 const pushAnswerIntoQuestion = (array1, array2) => {
   const updatedArray = array1.map(x => {
     const questionAnswers = array2.filter(y => {
@@ -25,4 +43,4 @@ const pushAnswerIntoQuestion = (array1, array2) => {
   })
   return updatedArray;
 }
-module.exports = { pushAnswersIntoQuestionObject }
+module.exports = { pushAnswersIntoQuestionObject, calculateQuizScore }

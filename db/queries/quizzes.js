@@ -21,7 +21,7 @@ const getSelectedQuiz = function(quizId) {
     });
 };
 
-//create new query for answers to questions (pass through question_id, quiz_id,) -- Answer check may have to be different (not boolean based)
+//create new query for answers to questions (pass through quizId,) -- Answer check may have to be different (not boolean based)
 const getAnswersForSelectedQuiz = function(quizId) {
   const queryParams = [quizId];
   const parameterizedQuery = `SELECT quiz_answers.* FROM quiz_answers WHERE quiz_id = $1`;
@@ -32,11 +32,32 @@ const getAnswersForSelectedQuiz = function(quizId) {
     })
 }
 
+// get correct answers for a quizId
+const getCorrectAnswerForQuiz = function(quizId) {
+  const queryParams = [quizId];
+  const parameterizedQuery = `
+  SELECT quiz_answers.* FROM quiz_answers
+  WHERE quiz_id = $1
+  AND is_correct IS TRUE
+  `
+  return db.query(parameterizedQuery, queryParams)
+  .then(data => {
+    return data.rows;
+  })
+}
+
 // insert results to quiz_results table after user has taken quiz (VIEW QUIZ)
-const addQuizResult = function(quizResultData) {
-  const queryParams = [quizResultData.id, quizResultData.quiz_id, quizResultData.user_id, quizResultData.score, quizResultData.completed_at, quizResultData.link];
-  const parameterizedQuery = 'INSERT INTO quiz_results VALUES ($1, $2, $3, $4, $5, $6)';
-  return db.query(parameterizedQuery, queryParams);
+const addQuizResult = function(quizId, userId, quizScore, resultLink) {
+  const queryParams = [quizId, userId, quizScore, resultLink]
+  const parameterizedQuery = `
+  INSERT INTO quiz_results (quiz_id, user_id, score, link)
+  VALUES ($1, $2, $3, $4)
+  RETURNING *
+  `;
+  return db.query(parameterizedQuery, queryParams)
+  .then(data => {
+    return data.rows;
+  })
 }
 
 // insert new quiz to relevant tables when a user creates a quiz (CREATE QUIZ)
@@ -47,4 +68,4 @@ const addNewQuiz = function(newQuizData) {
 }
 
 
-module.exports = { getQuizzes, getSelectedQuiz, getAnswersForSelectedQuiz ,addQuizResult, addNewQuiz };
+module.exports = { getQuizzes, getSelectedQuiz, getAnswersForSelectedQuiz , getCorrectAnswerForQuiz,addQuizResult, addNewQuiz };
