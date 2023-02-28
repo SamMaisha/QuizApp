@@ -16,11 +16,14 @@
 
     <link
       href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Roboto:ital,wght@0,100;0,400;1,400&display=swap"
-      rel="stylesheet"/>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500&family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script src="/scripts/app.js"></script>
@@ -36,18 +39,18 @@
     <body>
       <h1><%= quizzes.title %></h1>
       <h2><%= quizzes.description %></h2>
-      <h3><%= users.name %></h3>
-      <h4><%= quizzes.category %></h4>
+      <h3><%= quizzes.owner_name %></h3>
+      <h4><%= quizzes.type %></h4>
 
       <form action="/:quizid" method="GET">
         <div class="quiz-container" id="quiz">
           <h2 id="question">Question 1</h2>
-          <img src="<%= quiz_questions[0].photo_url %>" />
-          <p><%= quiz_questions[0].question %></p>
+          <img src="<%= quizzes[0].photo_url %>" />
+          <p><%= quizzes[0].question %></p>
           <ol type="a">
             <li>
               <input type="radio" name="1answer" id="a" class="answer" /><%=
-              quiz_questions[0].answer[0] %><br />
+              quizzes[0].question %><br />
               <label for="a" id="a_text">Question</label>
             </li>
 
@@ -73,8 +76,8 @@
 
       <div class="quiz-container" id="quiz">
         <h2 id="question">Question 2</h2>
-        <img src="<%= quiz_questions[1].photo_url %>" />
-        <p><%= quiz_questions[1].question %></p>
+        <img src="<%= quizzes[1].photo_url %>" />
+        <p><%= quizzes[1].question %></p>
         <ol type="a">
           <li>
             <input type="radio" name="2answer" id="a" class="answer" />
@@ -102,8 +105,8 @@
 
       <div class="quiz-container" id="quiz">
         <h2 id="question">Question 3</h2>
-        <img src="<%= quiz_questions[2].photo_url %>" />
-        <p><%= quiz_questions[2].question %></p>
+        <img src="<%= quizzes[2].photo_url %>" />
+        <p><%= quizzes[2].question %></p>
         <ol type="a">
           <li>
             <input type="radio" name="3answer" id="a" class="answer" />
@@ -131,8 +134,8 @@
 
       <div class="quiz-container" id="quiz">
         <h2 id="question">Question 4</h2>
-        <img src="<%= quiz_questions[3].photo_url %>" />
-        <p><%= quiz_questions[3].question %></p>
+        <img src="<%= quizzes[3].photo_url %>" />
+        <p><%= quizzes[3].question %></p>
         <ol type="a">
           <li>
             <input type="radio" name="4answer" id="a" class="answer" />
@@ -160,8 +163,8 @@
 
       <div class="quiz-container" id="quiz">
         <h2 id="question">Question 5</h2>
-        <img src="<%= quiz_questions[0].photo_url %>" />
-        <p><%= quiz_questions[0].question %></p>
+        <img src="<%= quizzes[4].photo_url %>" />
+        <p><%= quizzes[4].question %></p>
         <ol>
           <li>
             <input type="radio" name="5answer" id="a" class="answer" />
