@@ -5,14 +5,13 @@ const pushAnswersIntoQuestionObject = (array1, array2) => {
     })
 
     questionObject["answers"] = answersArrayForEachQuestion;
-    console.log("RESULT TEST" ,questionObject);
     return questionObject;
   })
   return updatedQuestionArray;
 }
 
 
-// og function 
+// og function
 const pushAnswerIntoQuestion = (array1, array2) => {
   const updatedArray = array1.map(x => {
     const questionAnswers = array2.filter(y => {
