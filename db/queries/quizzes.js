@@ -24,8 +24,8 @@ const getSelectedQuiz = function(quiz_id) {
 };
 
 //create new query for answers to questions (pass through question_id, quiz_id,) -- Answer check may have to be different (not boolean based)
-const getAnswersForSelectedQuiz = function(quiz_id, question_id) {
-  const queryParams = [quiz_id, question_id];
+const getAnswersForSelectedQuiz = function(quiz_id, question_id) { 
+  const queryParams = [quiz_id, question_id]; //pass true in array to get correct answer (probably gonna need a seperate array to return all)
   const parameterizedQuery = `SELECT quiz_answers.* FROM quiz_answers WHERE quiz_id = $1 AND question_id = $2`;
   return db.query(parameterizedQuery, queryParams)
     .then(data => {
