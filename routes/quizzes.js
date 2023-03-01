@@ -10,10 +10,10 @@ const router = express.Router();
 const quizQueries = require("../db/queries/quizzes");
 const { pushAnswersIntoQuestionObject, calculateQuizScore, returnBooleanIsPublic } = require("../functions/helper");
 
-// HOMEPAGE - show list of public quizzes
-// NOTE - tested end to end - everything checks out
+//////////////////////////////////////////////////////////////////////////////////////////////
+                     //HOMEPAGE - show list of public quizzes//
+//////////////////////////////////////////////////////////////////////////////////////////////
 router.get("/", (req, res) => {
-  //query returns an array of objects
   quizQueries
     .getQuizzes()
     .then((result) => {
@@ -28,83 +28,130 @@ router.get("/", (req, res) => {
     });
 });
 
-// CREATE QUIZ - render page to create a new quiz
+//////////////////////////////////////////////////////////////////////////////////////////////
+                     //CREATE QUIZ - render page to create a new quiz//
+//////////////////////////////////////////////////////////////////////////////////////////////
 router.get("/create", (req, res) => {
   res.render("quiz_create");
 });
 
-// CREATE QUIZ - add newly created quiz to DB table
+//////////////////////////////////////////////////////////////////////////////////////////////
+                     //CREATE QUIZ - add newly created quiz to DB table//
+//////////////////////////////////////////////////////////////////////////////////////////////
 router.post("/", (req, res) => {
   //parse body for submitted quiz
   const newQuiz = req.body;
   console.log(newQuiz);
 
 // add quiz data to quizzes table
-  const quizTitle = newQuiz["quiz-title"]
-  const quizDescription = newQuiz["quiz-description"]
-  const quizType = newQuiz["quiz-type"]
-  const userID = 1; //NEED THIS INFO !!!
+  const quizTitle = newQuiz["quiz-title"];
+  const quizDescription = newQuiz["quiz-description"];
+  const quizType = newQuiz["quiz-type"];
+  const userId = req.cookies["user_id"];
+  let quizId;
   const isPublic = returnBooleanIsPublic(newQuiz.privacy);
 
-  quizQueries.addNewQuiz(userID, quizTitle, quizType, quizDescription, isPublic)
+  quizQueries.addNewQuiz(userId, quizTitle, quizType, quizDescription, isPublic)
   .then(result => {
-    const quizId = result.id;
+    quizId = result.id;
     const quizLink = `http://localhost:8080/quizzes/${quizId}`
 
 // add quiz link to quizzes table
     return quizQueries.addQuizLink(quizId, quizLink)
   })
   .then(data =>{
-      console.log(data);
+      //console.log(data);
 // insert questions into questions table
       const question1 = newQuiz["question-1"];
       const question2 = newQuiz["question-2"];
       const question3 = newQuiz["question-3"];
       const question4 = newQuiz["question-4"];
-      return quizQueries.addQuizQuestions(quizId, question1, question2, question3, question4)
+      const question5 = newQuiz["question-5"];
+      return quizQueries.addQuizQuestions(quizId, question1, question2, question3, question4, question5)
     })
-    .then(data => {
-        console.log(data)
+  .then(data => {
+        // quiz_id for each question
+        const idQuestion1 = data[0].id;
+        const idQuestion2 = data[1].id;
+        const idQuestion3 = data[2].id;
+        const idQuestion4 = data[3].id;
+        const idQuestion5 = data[4].id;
+
+        // answers array for each question
+        const answersQuestion1 = newQuiz["1answer-text"];
+        const answersQuestion2 = newQuiz["2answer-text"];
+        const answersQuestion3 = newQuiz["3answer-text"];
+        const answersQuestion4 = newQuiz["4answer-text"];
+        const answersQuestion5 = newQuiz["5answer-text"];
+
+        // array index for correct answer
+        const correctAnswerIndexQues1 = Number(newQuiz["1answer-radio"]);
+        const correctAnswerIndexQues2 = Number(newQuiz["2answer-radio"]);
+        const correctAnswerIndexQues3 = Number(newQuiz["3answer-radio"]);
+        const correctAnswerIndexQues4 = Number(newQuiz["4answer-radio"]);
+        const correctAnswerIndexQues5 = Number(newQuiz["5answer-radio"]);
+
+        // insert answers for question 1 into quiz_answers table
+        answersQuestion1.forEach((element, index) => {
+          if (index === correctAnswerIndexQues1) {
+            quizQueries.addQuizAnswer(quizId, idQuestion1, element, true)
+          } else {
+            quizQueries.addQuizAnswer(quizId, idQuestion1, element, false)
+          }
+        });
+
+        // insert answers for question 2 into quiz_answers table
+        answersQuestion2.forEach((element, index) => {
+          if (index === correctAnswerIndexQues2) {
+            quizQueries.addQuizAnswer(quizId, idQuestion2, element, true)
+          } else {
+            quizQueries.addQuizAnswer(quizId, idQuestion2, element, false)
+          }
+        });
+
+        // insert answers for question 3 into quiz_answers table
+        answersQuestion3.forEach((element, index) => {
+          if (index === correctAnswerIndexQues3) {
+            quizQueries.addQuizAnswer(quizId, idQuestion3, element, true)
+          } else {
+            quizQueries.addQuizAnswer(quizId, idQuestion3, element, false)
+          }
+        });
+
+        // insert answers for question 4 into quiz_answers table
+        answersQuestion4.forEach((element, index) => {
+          if (index === correctAnswerIndexQues4) {
+            quizQueries.addQuizAnswer(quizId, idQuestion4, element, true)
+          } else {
+            quizQueries.addQuizAnswer(quizId, idQuestion4, element, false)
+          }
+        });
+
+        // insert answers for question 5 into quiz_answers table
+        answersQuestion5.forEach((element, index) => {
+          if (index === correctAnswerIndexQues5) {
+            quizQueries.addQuizAnswer(quizId, idQuestion5, element, true)
+          } else {
+            quizQueries.addQuizAnswer(quizId, idQuestion5, element, false)
+          }
+        });
       })
-
-
-
-
-
-
-
-
-
-
-
-  // quizQueries.addNewQuiz(newQuiz)
-  // .then(quiz => {
-  //   if (!quiz) {
-  //     res.send("oops something went wrong! Please try submitting again")
-  //     return;
-  //   }
-  //   res.send("new quiz has been created!")
-  // })
-  // .catch(error => res.send(error));
+      res.redirect('/quizzes');
 });
 
-// VIEW QUIZ - show single quiz for user to attempt
-// NOTE: (route is interacting with DB just fine - there is an issue in the ejs file)
-
+//////////////////////////////////////////////////////////////////////////////////////////////
+                     //VIEW QUIZ - show single quiz for user to attempt//
+//////////////////////////////////////////////////////////////////////////////////////////////
 router.get("/:quizid", (req, res) => {
   const quizId = req.params.quizid;
-  //console.log('QUIZ ID', quizId);
   quizQueries.getSelectedQuiz(quizId).
   then((resultQuestions) => {
     const quizQuestions = resultQuestions;
-    //console.log('QUIZ QUESTION', quizQuestions);
 
     quizQueries.getAnswersForSelectedQuiz(quizId)
     .then((resultAnswers) => {
       const quizAnswers = resultAnswers;
-      //console.log('QUIZ ANSWERS:', quizAnswers)
       const quizQuestionsAnswers = pushAnswersIntoQuestionObject(quizQuestions, quizAnswers);
-      // console.log('QUIZZES:', quizQuestionsAnswers)
       res.render("quiz_take",
     {quizzes: quizQuestionsAnswers
     });
@@ -112,10 +159,12 @@ router.get("/:quizid", (req, res) => {
   });
 });
 
-// VIEW QUIZ - send quiz results to DB
+//////////////////////////////////////////////////////////////////////////////////////////////
+                     //VIEW QUIZ - send quiz results to DB//
+//////////////////////////////////////////////////////////////////////////////////////////////
 router.post("/:quizid", (req, res) => {
   const quizId = req.params.quizid;
-  //const userId = NEED USER ID !!!!!!
+  userId = req.cookies["user_id"];
   console.log("QUIZ ID:",quizId);
 
   // get users answers and compare it to correct answer
@@ -123,12 +172,9 @@ router.post("/:quizid", (req, res) => {
   quizQueries.getCorrectAnswerForQuiz(quizId).then((result) => {
     const correctAnswers = result;
     const quizScore = calculateQuizScore(correctAnswers, userAnswers);
-    //console.log(quizScore);
-    // RESULT LINK NEEDS TO BE UPDATED WITH USERID !!!!!!!!!!!!
-    const quizResultLink = `http://localhost:8080/users/1/quizzes/${quizId}`;
+    const quizResultLink = `http://localhost:8080/users/${userId}/quizzes/${quizId}`;
     quizQueries.addQuizResult(quizId, 1, quizScore, quizResultLink)
     .then((quizResult) => {
-      //console.log(quizResult);
       if (!quizResult) {
         res.send("Oops! It appears that something has gone wrong")
       }

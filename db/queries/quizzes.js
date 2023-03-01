@@ -77,8 +77,7 @@ const addNewQuiz = function(ownerId, quizTitle, quizType, quizDescription, isPub
 const addQuizLink = function(quizId, quizLink) {
   const queryParams = [quizId, quizLink]
   const parameterizedQuery = `
-  INSERT INTO quizzes (link)
-  VALUES ($2)
+  UPDATE quizzes SET link = $2
   WHERE id = $1
   RETURNING *
   `
@@ -89,11 +88,11 @@ const addQuizLink = function(quizId, quizLink) {
 }
 
 // insert questions for newly created quiz into questions table
-const addQuizQuestions = function(quizId, question1, question2, question3,quiestion4) {
-  queryParams = [quizId, question1, question2, question3, quiestion4]
+const addQuizQuestions = function(quizId, question1, question2, question3,question4, question5) {
+  queryParams = [quizId, question1, question2, question3, question4, question5]
   const parameterizedQuery = `
   INSERT INTO quiz_questions (quiz_id, question)
-  VALUES ($1, $2), ($1, $3), ($1, $4), ($1, $5)
+  VALUES ($1, $2), ($1, $3), ($1, $4), ($1, $5), ($1, $6)
   RETURNING *
   `
   return db.query(parameterizedQuery, queryParams)
@@ -105,7 +104,7 @@ const addQuizQuestions = function(quizId, question1, question2, question3,quiest
 const addQuizAnswer = function(quizId, questionId, answer, is_correct) {
   queryParams = [quizId, questionId, answer, is_correct]
   const parameterizedQuery = `
-  INSERT INTO quiz_answer (quiz_id, question_id, answer, is_correct)
+  INSERT INTO quiz_answers (quiz_id, question_id, answer, is_correct)
   VALUES ($1, $2, $3, $4)`
   return db.query(parameterizedQuery, queryParams)
 }
