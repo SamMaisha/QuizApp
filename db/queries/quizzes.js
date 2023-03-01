@@ -61,11 +61,54 @@ const addQuizResult = function(quizId, userId, quizScore, resultLink) {
 }
 
 // insert new quiz to relevant tables when a user creates a quiz (CREATE QUIZ)
-const addNewQuiz = function(newQuizData) {
-  const queryParams = [newQuizData.id, newQuizData.owner_id, newQuizData.title, newQuizData.description, newQuizData.link, newQuizData.is_public, newQuizData.is_active, newQuizData.total_attempts, newQuizData.thumbnail_photo_url, newQuizData.cover_photo_url];
-  const parameterizedQuery = 'INSERT INTO quizzes VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)';
-  return db.query(parameterizedQuery, queryParams); //tested with fake object
+const addNewQuiz = function(ownerId, quizTitle, quizType, quizDescription, isPublic) {
+  const queryParams = [ownerId, quizTitle, quizType, quizDescription, isPublic];
+  const parameterizedQuery = `
+  INSERT INTO quizzes (owner_id, title, type, description, is_public)
+  VALUES ($1, $2, $3, $4, $5)
+  RETURNING *`;
+  return db.query(parameterizedQuery, queryParams)
+  .then(data => {
+    return data.rows[0];
+  })
+}
+
+// insert quiz link to quizzes table
+const addQuizLink = function(quizId, quizLink) {
+  const queryParams = [quizId, quizLink]
+  const parameterizedQuery = `
+  INSERT INTO quizzes (link)
+  VALUES ($2)
+  WHERE id = $1
+  RETURNING *
+  `
+  return db.query(parameterizedQuery, queryParams)
+  .then(data => {
+    return data.rows[0];
+  })
+}
+
+// insert questions for newly created quiz into questions table
+const addQuizQuestions = function(quizId, question1, question2, question3,quiestion4) {
+  queryParams = [quizId, question1, question2, question3, quiestion4]
+  const parameterizedQuery = `
+  INSERT INTO quiz_questions (quiz_id, question)
+  VALUES ($1, $2), ($1, $3), ($1, $4), ($1, $5)
+  RETURNING *
+  `
+  return db.query(parameterizedQuery, queryParams)
+  .then(data => {
+    return data.rows;
+  })
+}
+
+const addQuizAnswer = function(quizId, questionId, answer, is_correct) {
+  queryParams = [quizId, questionId, answer, is_correct]
+  const parameterizedQuery = `
+  INSERT INTO quiz_answer (quiz_id, question_id, answer, is_correct)
+  VALUES ($1, $2, $3, $4)`
+  return db.query(parameterizedQuery, queryParams)
 }
 
 
-module.exports = { getQuizzes, getSelectedQuiz, getAnswersForSelectedQuiz , getCorrectAnswerForQuiz,addQuizResult, addNewQuiz };
+module.exports = { getQuizzes, getSelectedQuiz, getAnswersForSelectedQuiz , getCorrectAnswerForQuiz,addQuizResult, addNewQuiz, addQuizLink, addQuizQuestions, addQuizAnswer };
