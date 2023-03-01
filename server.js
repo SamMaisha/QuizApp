@@ -46,7 +46,7 @@ app.use('/users', usersRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.redirect('/quizzes');
 });
 
 app.get('/login', (req, res) => {
@@ -73,7 +73,7 @@ app.post('/register', (req, res) => {
       .then(getUserIdByEmail(email)
       .then(data => {
         const userId = data.id;
-        res.cookie('userId', userId) //tested and cookie was set with user 6 in a fresh db 
+        res.cookie('userId', userId) //tested and cookie was set with user 6 in a fresh db
         res.redirect('/quizzes');
       }))
     }
