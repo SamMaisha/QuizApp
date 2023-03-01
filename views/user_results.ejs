@@ -16,11 +16,14 @@
 
     <link
       href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Roboto:ital,wght@0,100;0,400;1,400&display=swap"
-      rel="stylesheet"/>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500&family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script src="/scripts/app.js"></script>
@@ -34,15 +37,17 @@
     <% include partials/_header %>
 
     <div class="results-header">
-    <h1>Quiz-Tastic Results!</h1>
-    <img src="/images/jump.png" alt="" class="img-jump">
+      <h1>Quiz-Tastic Results!</h1>
+      <img src="/images/jump.png" alt="" class="img-jump" />
     </div>
     <div class="results-main">
-    <h2>Wow, you must have a PhD in Quizzing! Let's check out your quiz history, smarty pants.</h2>
-    <h2>Here's a rundown of your epic acheivements:</h2>
+      <h2>
+        Wow, you must have a PhD in Quizzing! Let's check out your quiz history,
+        smarty pants.
+      </h2>
+      <h2>Here's a rundown of your epic acheivements:</h2>
     </div>
-    <table class="table" >
-
+    <table class="table">
       <thead>
         <tr>
           <th>Quiz Name</th>
@@ -50,25 +55,30 @@
           <th scope="col">Share it!</th>
         </tr>
       </thead>
-    <tbody>
-
+      <tbody>
         <% results.forEach((result) => { %>
-          <tr>
-          <td><a href="/quizzes/<%= result.quiz_id %>"><%= result.quiz_title %></a></td>
+        <tr>
+          <td>
+            <a href="/quizzes/<%= result.quiz_id %>"
+              ><%= result.quiz_title %></a
+            >
+          </td>
           <td><%= result.score %>/5</td>
-          <td><a href="/quizzes/<%= result.quiz_id %>">https://quizzeswithfriends.com/quizzes/<%= result.quiz_id %></a></td>
+          <td>
+            <a href="/users/<%=userId%>/quizzes/<%= result.quiz_id %>"
+              >https://quizzeswithfriends.com/users/<%=userId%>/quizzes/<%=
+              result.quiz_id %></a
+            >
+          </td>
         </tr>
-      <% }) %>
-
-    </tbody>
+        <% }) %>
+      </tbody>
     </table>
     <div class="great-work-container">
-       <img src="/images/zen.png" alt="" class="img-zen">
-       <h2>Keep up the great work, oh wise and all-knowing quiz master!</h2>
+      <img src="/images/zen.png" alt="" class="img-zen" />
+      <h2>Keep up the great work, oh wise and all-knowing quiz master!</h2>
     </div>
 
-    <div>
-    <% include partials/_footer %>
-  </div>
-   </body>
+    <div><% include partials/_footer %></div>
+  </body>
 </html>
