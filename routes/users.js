@@ -53,8 +53,13 @@ router.get('/:userid/quizzes/:quizid', (req, res) => {
   console.log(userId);
   console.log(quizId);
   // interact with query to fetch quiz result for user -- need to add query for this
-
-  res.render('user_quiz_result');
+  userQueries.getResultForSingleQuiz(userId, quizId)
+  .then(data => {
+    const result = data
+    res.render('user_quiz_result', {
+      result: result
+    });
+  })
 })
 
 module.exports = router;
