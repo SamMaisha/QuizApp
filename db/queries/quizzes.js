@@ -3,7 +3,7 @@ const db = require('../connection');
 
 // get all public quizzes from quizzes table (HOMEPAGE)
 const getQuizzes = () => {
-  return db.query('SELECT quizzes.*, users.name, type as category FROM quizzes JOIN users ON owner_id = users.id')
+  return db.query('SELECT quizzes.*, users.name, type as category FROM quizzes JOIN users ON owner_id = users.id WHERE quizzes.is_public IS TRUE AND is_active IS TRUE')
     .then(data => {
       const allQuizzes = data.rows;
       return allQuizzes;
