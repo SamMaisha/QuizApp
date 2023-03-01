@@ -39,24 +39,24 @@ router.post("/", (req, res) => {
   const newQuiz = req.body;
   console.log(newQuiz);
 
-  // values to pass into addNewQuiz query
+// add quiz data to quizzes table
   const quizTitle = newQuiz["quiz-title"]
   const quizDescription = newQuiz["quiz-description"]
   const quizType = newQuiz["quiz-type"]
   const userID = 1; //NEED THIS INFO !!!
   const isPublic = returnBooleanIsPublic(newQuiz.privacy);
 
-
   quizQueries.addNewQuiz(userID, quizTitle, quizType, quizDescription, isPublic)
   .then(result => {
     const quizId = result.id;
     const quizLink = `http://localhost:8080/quizzes/${quizId}`
+
+// add quiz link to quizzes table
     return quizQueries.addQuizLink(quizId, quizLink)
   })
   .then(data =>{
       console.log(data);
-
-      // insert questions into questions table
+// insert questions into questions table
       const question1 = newQuiz["question-1"];
       const question2 = newQuiz["question-2"];
       const question3 = newQuiz["question-3"];
