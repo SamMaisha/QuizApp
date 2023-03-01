@@ -104,7 +104,7 @@ const addQuizQuestions = function(quizId, question1, question2, question3,questi
 const addQuizAnswer = function(quizId, questionId, answer, is_correct) {
   queryParams = [quizId, questionId, answer, is_correct]
   const parameterizedQuery = `
-  INSERT INTO quiz_answer (quiz_id, question_id, answer, is_correct)
+  INSERT INTO quiz_answers (quiz_id, question_id, answer, is_correct)
   VALUES ($1, $2, $3, $4)`
   return db.query(parameterizedQuery, queryParams)
 }
