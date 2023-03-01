@@ -40,10 +40,10 @@ router.post("/", (req, res) => {
   console.log(newQuiz);
 
 // add quiz data to quizzes table
-  const quizTitle = newQuiz["quiz-title"]
-  const quizDescription = newQuiz["quiz-description"]
-  const quizType = newQuiz["quiz-type"]
-  const userId = req.cookies["user_id"]
+  const quizTitle = newQuiz["quiz-title"];
+  const quizDescription = newQuiz["quiz-description"];
+  const quizType = newQuiz["quiz-type"];
+  const userId = req.cookies["user_id"];
   let quizId;
   const isPublic = returnBooleanIsPublic(newQuiz.privacy);
 
@@ -66,7 +66,7 @@ router.post("/", (req, res) => {
       return quizQueries.addQuizQuestions(quizId, question1, question2, question3, question4, question5)
     })
   .then(data => {
-        console.log(data)
+        //console.log(data)
         const idQuestion1 = data[0].id;
         const idQuestion2 = data[1].id;
         const idQuestion3 = data[2].id;
@@ -74,30 +74,21 @@ router.post("/", (req, res) => {
         const idQuestion5 = data[4].id;
 
         const answersQuestion1 = newQuiz["1answer-text"];
-        const answersQuestion2 = newQuiz["2answer-text"]
-        const answersQuestion3 = newQuiz["3answer-text"]
-        const answersQuestion4 = newQuiz["4answer-text"]
-        const answersQuestion5 = newQuiz["5answer-text"]
+        const answersQuestion2 = newQuiz["2answer-text"];
+        const answersQuestion3 = newQuiz["3answer-text"];
+        const answersQuestion4 = newQuiz["4answer-text"];
+        const answersQuestion5 = newQuiz["5answer-text"];
 
-        const correctAnswerIndexQues1 = newQuiz["1answer-radio"]
-        const correctAnswerIndexQues2 = newQuiz["1answer-radio"]
-        const correctAnswerIndexQues3 = newQuiz["1answer-radio"]
-        const correctAnswerIndexQues4 = newQuiz["1answer-radio"]
-        const correctAnswerIndexQues5 = newQuiz["1answer-radio"]
+        const correctAnswerIndexQues1 = Number(newQuiz["1answer-radio"]);
+        const correctAnswerIndexQues2 = Number(newQuiz["2answer-radio"]);
+        const correctAnswerIndexQues3 = Number(newQuiz["3answer-radio"]);
+        const correctAnswerIndexQues4 = Number(newQuiz["4answer-radio"]);
+        const correctAnswerIndexQues5 = Number(newQuiz["5answer-radio"]);
 
 
-        console.log(answersQuestion1, answersQuestion2, answersQuestion3, answersQuestion4, answersQuestion5)
+        console.log(correctAnswerIndexQues1, correctAnswerIndexQues2, correctAnswerIndexQues3, correctAnswerIndexQues4, correctAnswerIndexQues5)
 
       })
-
-
-
-
-
-
-
-
-
 
 
   // quizQueries.addNewQuiz(newQuiz)
