@@ -8,7 +8,7 @@ CREATE TABLE quizzes (
   title VARCHAR(255) NOT NULL,
   type VARCHAR(255) NOT NULL,
   description TEXT,
-  link VARCHAR(255) NOT NULL,
+  link VARCHAR(255),
   is_public BOOLEAN DEFAULT true,
   is_active BOOLEAN DEFAULT true,
   total_attempts INT DEFAULT 0,
