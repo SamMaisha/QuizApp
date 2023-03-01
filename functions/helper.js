@@ -69,4 +69,4 @@ const userValidator = function (userEmail) {
 }
 
 
-module.exports = { pushAnswersIntoQuestionObject, calculateQuizScore, userValidator }
+module.exports = { pushAnswersIntoQuestionObject, calculateQuizScore, returnBooleanIsPublic, userValidator }
