@@ -59,16 +59,16 @@
 
 <!-- Create Quiz Form -->
 
-  <form action="/" method="POST">
+  <form action="/quizzes" method="POST">
     <div class="quiz-container" id="quiz">
       <div class="question-box">
         <h2 class="quiz-name">Name Your Quiz</h2>
-        <input type="text" class="quiz-title"></input>
+        <input type="text" class="quiz-title" name="quiz-title"></input>
         <h2 class="quiz-description">Describe Your Quiz</h2>
-        <input type="text" class="quiz-description"></input>
+        <input type="text" class="quiz-description" name="quiz-description"></input>
         <h2 class="quiz-category">Choose a Category</h2>
-        <select name="category" id="category" class="quiz-category">
-          <option value="general">General Knowledge</option>
+        <select name="quiz-type" id="category" class="quiz-category">
+          <option value="general knowledge">General Knowledge</option>
           <option value="books">Books</option>
           <option value="film">Film</option>
           <option value="music">Music</option>
@@ -87,32 +87,32 @@
 
         <div class="question-box">
         <h2 class="question">Question 1</h2>
-        <input type="text" class="question-text"></input>
+        <input type="text" class="question-text" name="question-1"></input>
         <h2 class="question">Answers</h2>
         <h4>(check the correct answer)</h4>
         <ol type="a">
           <li>
             <h3>a.</h3>
             <input type="text" name="1answer-text" id="a" class="answer">
-            <input type="radio" name="1answer-radio" id="a" class="correct-answer">
+            <input type="radio" name="1answer-radio" id="a" class="correct-answer" value="0">
           </li>
 
           <li>
             <h3>b.</h3>
             <input type="text" name="1answer-text" id="b" class="answer">
-            <input type="radio" name="1answer-radio" id="b" class="correct-answer">
+            <input type="radio" name="1answer-radio" id="b" class="correct-answer" value="1">
           </li>
 
           <li>
             <h3>c.</h3>
             <input type="text" name="1answer-text" id="c" class="answer">
-            <input type="radio" name="1answer-radio" id="c" class="correct-answer">
+            <input type="radio" name="1answer-radio" id="c" class="correct-answer" value="2">
           </li>
 
           <li>
             <h3>d.</h3>
             <input type="text" name="1answer-text" id="d" class="answer">
-            <input type="radio" name="1answer-radio" id="d" class="correct-answer">
+            <input type="radio" name="1answer-radio" id="d" class="correct-answer" value="3">
           </li>
         </ol>
       </div>
@@ -121,32 +121,32 @@
 
       <div class="question-box">
         <h2 class="question">Question 2</h2>
-        <input type="text" class="question-text"></input></span>
+        <input type="text" class="question-text" name="question-2"></input></span>
         <h2 class="question">Answers</h2>
         <h4>(check the correct answer)</h4>
         <ol>
           <li>
             <h3>a.</h3>
             <input type="text" name="2answer-text" id="a" class="answer">
-            <input type="radio" name="2answer-radio" id="a" class="correct-answer">
+            <input type="radio" name="2answer-radio" id="a" class="correct-answer" value="0">
           </li>
 
           <li>
             <h3>b.</h3>
             <input type="text" name="2answer-text" id="b" class="answer">
-            <input type="radio" name="2answer-radio" id="b" class="correct-answer">
+            <input type="radio" name="2answer-radio" id="b" class="correct-answer" value="1">
           </li>
 
           <li>
             <h3>c.</h3>
             <input type="text" name="2answer-text" id="c" class="answer">
-            <input type="radio" name="2answer-radio" id="c" class="correct-answer">
+            <input type="radio" name="2answer-radio" id="c" class="correct-answer" value="2">
           </li>
 
           <li>
             <h3>d.</h3>
             <input type="text" name="2answer-text" id="d" class="answer">
-            <input type="radio" name="2answer-radio" id="d" class="correct-answer">
+            <input type="radio" name="2answer-radio" id="d" class="correct-answer" value="3">
           </li>
         </ol>
       </div>
@@ -155,7 +155,7 @@
 
       <div class="question-box">
         <h2 class="question">Question 3</h2>
-        <input type="text" class="question-text"></input>
+        <input type="text" class="question-text" name="question-3"></input>
         <div class="create-answers">
           <h2>Answers</h2>
           <h4>(check the correct answer)</h4>
@@ -164,25 +164,25 @@
           <li>
             <h3>a.</h3>
             <input type="text" name="3answer-text" id="a" class="answer">
-            <input type="radio" name="3answer-radio" id="a" class="correct-answer">
+            <input type="radio" name="3answer-radio" id="a" class="correct-answer" value="0">
           </li>
 
           <li>
             <h3>b.</h3>
             <input type="text" name="3answer-text" id="b" class="answer">
-            <input type="radio" name="3answer-radio" id="b" class="correct-answer">
+            <input type="radio" name="3answer-radio" id="b" class="correct-answer" value="1">
           </li>
 
           <li>
             <h3>c.</h3>
             <input type="text" name="3answer-text" id="c" class="answer">
-            <input type="radio" name="3answer-radio" id="c" class="correct-answer">
+            <input type="radio" name="3answer-radio" id="c" class="correct-answer" value="2">
           </li>
 
           <li>
             <h3>d.</h3>
             <input type="text" name="3answer-text" id="d" class="answer">
-            <input type="radio" name="3answer-radio" id="d" class="correct-answer">
+            <input type="radio" name="3answer-radio" id="d" class="correct-answer" value="3">
           </li>
         </ol>
       </div>
@@ -190,32 +190,32 @@
 <!-- Question Box 4 -->
 
       <div class="question-box">
-        <h2 class="question">Question 4</h2><input type="text"></input>
+        <h2 class="question">Question 4</h2><input type="text" name="question-4"></input>
         <h2 class="question">Answers</h2>
         <h4>(check the correct answer)</h4>
         <ol>
           <li>
             <h3>a.</h3>
             <input type="text" name="4answer-text" id="a" class="answer">
-            <input type="radio" name="4answer-radio" id="a" class="correct-answer">
+            <input type="radio" name="4answer-radio" id="a" class="correct-answer" value="0">
           </li>
 
           <li>
             <h3>b.</h3>
             <input type="text" name="4answer-text" id="b" class="answer">
-            <input type="radio" name="4answer-radio" id="b" class="correct-answer">
+            <input type="radio" name="4answer-radio" id="b" class="correct-answer" value="1">
           </li>
 
           <li>
             <h3>c.</h3>
             <input type="text" name="4answer-text" id="c" class="answer">
-            <input type="radio" name="4answer-radio" id="c" class="correct-answer">
+            <input type="radio" name="4answer-radio" id="c" class="correct-answer" value="2">
           </li>
 
           <li>
             <h3>d.</h3>
             <input type="text" name="4answer-text" id="d" class="answer">
-            <input type="radio" name="4answer-radio" id="d" class="correct-answer">
+            <input type="radio" name="4answer-radio" id="d" class="correct-answer" value="3">
           </li>
         </ol>
       </div>
@@ -224,32 +224,32 @@
 
       <div class="question-box">
         <h2 class="question">Question 5</h2>
-        <input type="text" class="question-text"></input>
+        <input type="text" class="question-text" name="question-5"></input>
         <h2 class="question">Answers</h2>
         <h4>(check the correct answer)</h4>
         <ol type="a">
           <li>
             <h3>a.</h3>
             <input type="text" name="5answer-text" id="a" class="answer">
-            <input type="radio" name="5answer-radio" id="a" class="correct-answer">
+            <input type="radio" name="5answer-radio" id="a" class="correct-answer" value="0">
           </li>
 
           <li>
             <h3>b.</h3>
             <input type="text" name="5answer-text" id="b" class="answer">
-            <input type="radio" name="5answer-radio" id="b" class="correct-answer">
+            <input type="radio" name="5answer-radio" id="b" class="correct-answer" value="1">
           </li>
 
           <li>
             <h3>c.</h3>
             <input type="text" name="5answer-text" id="c" class="answer">
-            <input type="radio" name="5answer-radio" id="c" class="correct-answer">
+            <input type="radio" name="5answer-radio" id="c" class="correct-answer" value="2">
           </li>
 
           <li>
             <h3>d.</h3>
             <input type="text" name="5answer-text" id="d" class="answer">
-            <input type="radio" name="5answer-radio" id="d" class="correct-answer">
+            <input type="radio" name="5answer-radio" id="d" class="correct-answer" value="3">
           </li>
         </ol>
       </div>

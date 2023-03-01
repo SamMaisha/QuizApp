@@ -8,7 +8,7 @@
 const express = require("express");
 const router = express.Router();
 const quizQueries = require("../db/queries/quizzes");
-const { pushAnswersIntoQuestionObject, calculateQuizScore } = require("../functions/helper");
+const { pushAnswersIntoQuestionObject, calculateQuizScore, returnBooleanIsPublic } = require("../functions/helper");
 
 // HOMEPAGE - show list of public quizzes
 // NOTE - tested end to end - everything checks out
@@ -38,6 +38,45 @@ router.post("/", (req, res) => {
   //parse body for submitted quiz
   const newQuiz = req.body;
   console.log(newQuiz);
+
+// add quiz data to quizzes table
+  const quizTitle = newQuiz["quiz-title"]
+  const quizDescription = newQuiz["quiz-description"]
+  const quizType = newQuiz["quiz-type"]
+  const userID = 1; //NEED THIS INFO !!!
+  const isPublic = returnBooleanIsPublic(newQuiz.privacy);
+
+  quizQueries.addNewQuiz(userID, quizTitle, quizType, quizDescription, isPublic)
+  .then(result => {
+    const quizId = result.id;
+    const quizLink = `http://localhost:8080/quizzes/${quizId}`
+
+// add quiz link to quizzes table
+    return quizQueries.addQuizLink(quizId, quizLink)
+  })
+  .then(data =>{
+      console.log(data);
+// insert questions into questions table
+      const question1 = newQuiz["question-1"];
+      const question2 = newQuiz["question-2"];
+      const question3 = newQuiz["question-3"];
+      const question4 = newQuiz["question-4"];
+      return quizQueries.addQuizQuestions(quizId, question1, question2, question3, question4)
+    })
+    .then(data => {
+        console.log(data)
+      })
+
+
+
+
+
+
+
+
+
+
+
   // quizQueries.addNewQuiz(newQuiz)
   // .then(quiz => {
   //   if (!quiz) {
@@ -84,29 +123,18 @@ router.post("/:quizid", (req, res) => {
   quizQueries.getCorrectAnswerForQuiz(quizId).then((result) => {
     const correctAnswers = result;
     const quizScore = calculateQuizScore(correctAnswers, userAnswers);
-    console.log(quizScore);
+    //console.log(quizScore);
     // RESULT LINK NEEDS TO BE UPDATED WITH USERID !!!!!!!!!!!!
     const quizResultLink = `http://localhost:8080/users/1/quizzes/${quizId}`;
     quizQueries.addQuizResult(quizId, 1, quizScore, quizResultLink)
     .then((quizResult) => {
-      console.log(quizResult);
+      //console.log(quizResult);
       if (!quizResult) {
         res.send("Oops! It appears that something has gone wrong")
       }
       res.redirect('/quizzes');
     })
   })
-
-
-
-
-  // quizQueries.addQuizResult(quizId).then((quizResult) => {
-  //   console.log(quizResult);
-  //   if (!quizResult) {
-  //     res.send("error");
-  //     return;
-  //   }
-  // });
 });
 
 // MY QUIZZES - post route to delete a quiz {POST MVP}
