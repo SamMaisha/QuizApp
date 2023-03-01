@@ -38,12 +38,11 @@
   <!-- Main -->
 
         <div class="result-main">
-        <% results.forEach((result) => { %>
           <h1> Let's check out your results for <a href="/quizzes/<%= result.quiz_id %>"><%= result.quiz_title %></a>
           <h2>Score:</h2>
           <h2><%= result.score %></h2>
-          <h1>Great work! <a href="/quizzes/<%=result.user_id%>/quizzes/<%= result.quiz_id %>/share">Share it with a friend!</a></h1>
-      <% }) %>
+          <h1>Great work! <a href="/users/<%=result.user_id%>/quizzes/<%= result.quiz_id %>"> Copy paste link and share it with a friend!</a></h1>
+
 
 <!-- Footer -->
     <% include partials/_footer %>
