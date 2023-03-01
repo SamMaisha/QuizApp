@@ -43,28 +43,51 @@ router.post("/", (req, res) => {
   const quizTitle = newQuiz["quiz-title"]
   const quizDescription = newQuiz["quiz-description"]
   const quizType = newQuiz["quiz-type"]
-  const userID = 1; //NEED THIS INFO !!!
+  const userId = req.cookies["user_id"]
+  let quizId;
   const isPublic = returnBooleanIsPublic(newQuiz.privacy);
 
-  quizQueries.addNewQuiz(userID, quizTitle, quizType, quizDescription, isPublic)
+  quizQueries.addNewQuiz(userId, quizTitle, quizType, quizDescription, isPublic)
   .then(result => {
-    const quizId = result.id;
+    quizId = result.id;
     const quizLink = `http://localhost:8080/quizzes/${quizId}`
 
 // add quiz link to quizzes table
     return quizQueries.addQuizLink(quizId, quizLink)
   })
   .then(data =>{
-      console.log(data);
+      //console.log(data);
 // insert questions into questions table
       const question1 = newQuiz["question-1"];
       const question2 = newQuiz["question-2"];
       const question3 = newQuiz["question-3"];
       const question4 = newQuiz["question-4"];
-      return quizQueries.addQuizQuestions(quizId, question1, question2, question3, question4)
+      const question5 = newQuiz["question-5"];
+      return quizQueries.addQuizQuestions(quizId, question1, question2, question3, question4, question5)
     })
-    .then(data => {
+  .then(data => {
         console.log(data)
+        const idQuestion1 = data[0].id;
+        const idQuestion2 = data[1].id;
+        const idQuestion3 = data[2].id;
+        const idQuestion4 = data[3].id;
+        const idQuestion5 = data[4].id;
+
+        const answersQuestion1 = newQuiz["1answer-text"];
+        const answersQuestion2 = newQuiz["2answer-text"]
+        const answersQuestion3 = newQuiz["3answer-text"]
+        const answersQuestion4 = newQuiz["4answer-text"]
+        const answersQuestion5 = newQuiz["5answer-text"]
+
+        const correctAnswerIndexQues1 = newQuiz["1answer-radio"]
+        const correctAnswerIndexQues2 = newQuiz["1answer-radio"]
+        const correctAnswerIndexQues3 = newQuiz["1answer-radio"]
+        const correctAnswerIndexQues4 = newQuiz["1answer-radio"]
+        const correctAnswerIndexQues5 = newQuiz["1answer-radio"]
+
+
+        console.log(answersQuestion1, answersQuestion2, answersQuestion3, answersQuestion4, answersQuestion5)
+
       })
 
 
@@ -115,7 +138,7 @@ router.get("/:quizid", (req, res) => {
 // VIEW QUIZ - send quiz results to DB
 router.post("/:quizid", (req, res) => {
   const quizId = req.params.quizid;
-  //const userId = NEED USER ID !!!!!!
+  userId = req.cookies["user_id"]
   console.log("QUIZ ID:",quizId);
 
   // get users answers and compare it to correct answer
@@ -125,7 +148,7 @@ router.post("/:quizid", (req, res) => {
     const quizScore = calculateQuizScore(correctAnswers, userAnswers);
     //console.log(quizScore);
     // RESULT LINK NEEDS TO BE UPDATED WITH USERID !!!!!!!!!!!!
-    const quizResultLink = `http://localhost:8080/users/1/quizzes/${quizId}`;
+    const quizResultLink = `http://localhost:8080/users/${userId}/quizzes/${quizId}`;
     quizQueries.addQuizResult(quizId, 1, quizScore, quizResultLink)
     .then((quizResult) => {
       //console.log(quizResult);
