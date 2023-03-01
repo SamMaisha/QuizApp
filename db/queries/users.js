@@ -5,7 +5,7 @@ const db = require('../connection');
 const getUserById = function (userID) {
   const queryParams = [userID];
   const parameterizedQuery = `
-  SELECT users.email, users.password, users.id FROM users WHERE users.id = $1 
+  SELECT users.email, users.password, users.id FROM users WHERE users.id = $1
   `
   return db.query(parameterizedQuery, queryParams)
     .then(data => {
@@ -34,7 +34,6 @@ const getQuizResultsForUser = function(userId) {
     return db.query(parameterizedQuery,queryParams)
       .then(data => {
         const quizResults = data.rows;
-        console.log(quizResults);
         return quizResults;
       });
 };
@@ -46,9 +45,21 @@ const getQuizzesCreatedByUser = function(userId) {
     return db.query(parameterizedQuery,queryParams)
       .then(data => {
         const userCreatedQuiz = data.rows;
-        console.log(userCreatedQuiz);
         return userCreatedQuiz;
       });
+}
+
+// get quiz result for a single quiz for a specific user
+
+const getResultForSingleQuiz = function(userId, quizId) {
+  const queryParams = [userId, quizId]
+  const parameterizedQuery = `
+  SELECT quiz_results.*, quizzes.title as quiz_title FROM quiz_results JOIN quizzes ON quiz_id = quizzes.id WHERE user_id = $1 AND quiz_id = $2
+  `
+  return db.query(parameterizedQuery, queryParams)
+  .then(data => {
+    return data.rows[0];
+  })
 }
 
 const addUser = function(userCredentials) { //tested with fake object, inserts
@@ -56,7 +67,7 @@ const addUser = function(userCredentials) { //tested with fake object, inserts
   const parameterizedQuery = `
   INSERT INTO users (name, email, password) VALUES ($1, $2, $3)
   RETURNING *`
-  
+
   console.log('worked');
   return db.query(parameterizedQuery, queryParams);
 }
@@ -69,4 +80,4 @@ const getAllEmails = function() {
     })
 }
 
-module.exports = { getQuizResultsForUser, getQuizzesCreatedByUser, getUserById, getAllEmails, addUser, getUserIdByEmail };
+module.exports = { getQuizResultsForUser, getQuizzesCreatedByUser, getUserById, getAllEmails, addUser, getUserIdByEmail, getResultForSingleQuiz };
