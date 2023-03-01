@@ -20,7 +20,8 @@ router.get('/:userid/results', (req, res) => {
     console.log(result);
     const quizResult = result
     res.render('user_results', {
-      results: quizResult
+      results: quizResult,
+      userId: userId
     })
   })
   .catch(err => {
