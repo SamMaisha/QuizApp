@@ -1,36 +1,15 @@
 // Client facing scripts here
+
+// quiz page
+
 const quizData = [
   {
-    question: "What is Gabby's real cat's name?",
-    a: "Fred",
-    b: "Frank",
-    c: "Floyd",
-    d: "Poo Poo",
-    correct: "c",
-  },
-  {
-    question: "What is MerCat's favourite type of science?",
-    a: "Ocean Science",
-    b: "Spa Science",
-    c: "Kitty Science",
-    d: "Mermaid Science",
-    correct: "b",
-  },
-  {
-    question: "How many Hamster Kitties are there?",
-    a: "6",
-    b: "4",
-    c: "12",
-    d: "none",
-    correct: "a",
-  },
-  {
-    question: "Is Pandy's black patch on his left ear or his right?",
-    a: "right",
-    b: "left",
-    c: "both",
-    d: "none",
-    correct: "b",
+    question:
+    a:
+    b:
+    c:
+    d:
+    correct:
   },
 ];
 

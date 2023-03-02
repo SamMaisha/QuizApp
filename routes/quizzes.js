@@ -25,6 +25,7 @@ router.get('/', (req, res) => {
 
 // CREATE QUIZ - render page
 router.get('/create', (req, res) => {
+
 })
 
 // CREATE QUIZ - add newly created quiz to DB table
@@ -42,5 +43,6 @@ router.get('/:quizid', (req, res) => {
 router.post('/:quizid', (req, res) => {
 
 })
+
 
 module.exports = router;

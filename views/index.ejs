@@ -19,38 +19,58 @@
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
+  <script src="https://kit.fontawesome.com/53038575dd.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 <% include partials/_header %>
 
 <section class="hero">
+
+    <img src="/images/business-partnership.png" class="hero-img">
     <div class="hero-text">
-      <p>Quiz App is a quiz app that allows you to create quizzes and take quizzes.</p>
-      <button href="/create">Create a Quiz</button>
+      <h3>fun descriptive tagline for app</h3>
+      <form action="/create" method="GET"><button type="submit">Create a Quiz</button></form>
     </div>
   </section>
 
     <div class="quiz-display">
 
-    <h1 class="title">Or, Take a quiz!</h1>
+    <h1 class="title">tagline for user to try a quiz</h1>
 
     <section class ="quiz-cards">
+
       <div class="column">
-        <h2 a href="#">Quiz</h2>
+        <div class="icon-container">
+        <i class="fa-sharp fa-solid fa-question fa-5x"></i>
+        </div>
+        <a href="/quiz"><h3>Quiz</h3></a>
+        <p>Quiz Author</p>
         <p>Quiz Description</p>
       </div>
 
       <div class="column">
-        <h2 a href="#">Quiz</h2>
+        <div class="icon-container">
+        <i class="fa-sharp fa-solid fa-question fa-5x"></i>
+        </div>
+        <a href="/quiz"><h3>Quiz</h3></a>
+        <p>Quiz Author</p>
         <p>Quiz Description</p>
       </div>
 
       <div class="column">
-        <h2 a href="#">Quiz</h2>
+        <div class="icon-container">
+        <i class="fa-sharp fa-solid fa-question fa-5x"></i>
+        </div>
+           <a href="/quiz"><h3>Quiz</h3></a>
+        <p>Quiz Author</p>
         <p>Quiz Description</p>
       </div>
     </div>
+  </section>
+
+  <section class="tbd">
+
   </section>
   </main>
   <% include partials/_footer %>
