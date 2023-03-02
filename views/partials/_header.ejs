@@ -10,38 +10,38 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Roboto:ital,wght@0,100;0,400;1,400&display=swap" rel="stylesheet">
+
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
   <title>Quiz App</title>
 </head>
 <body>
+<!-- Nav Bar -->
+  <nav class = "navbar">
+    <div class="logo">
+      <a href="#">
+        <span>Q</span>uiz<span>A</span>pp
+      </a>
+    </div>
 
-  <nav>
-   <!-- if statement -->
-      <!-- <p>Welcome, user!</p>
-      <form action="/logout" method="POST">
-        <button type="submit">Logout</button>
-      </form>
-    <ul>
-      <li><a href="#">Create a Quiz</a></li>
-      <li><a href="#">My Quizzes</a></li>
-      <li><a href="#">My Quiz Results</a></li>
-      <li><a href="#">Hanburger Style Icon</a></li> -->
-    <!-- </ul> -->
+    <div class="nav-list">
+      <a href="/create" class="nav-link">Create a Quiz</a>
+      <a href="#" class="nav-link">My Quizzes</a>
+      <a href="#" class="nav-link">My Quiz Results</a>
+    </div>
+  </nav>
+  <!-- end of Nav -->
 
-<!-- else  -->
-<div class="nav-col">
-      <p><a href="#">Quiz App</a></p>
+<!-- Menu -->>
+<div class="menu">
+  <div class="line line-1"></div>
+  <div class="line line-2"></div>
+  <div class="line line-3"></div>
 </div>
-<div class="nav-col">
-      <form action="/login" method="POST">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
-        <button type="submit">Login</button>
-      </form>
-</div>
-<!-- closing tag  -->
-</nav>
+<!-- end of Menu-->
 
 </body>
 </html>

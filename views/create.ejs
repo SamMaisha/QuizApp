@@ -24,35 +24,37 @@
 <body>
 <% include partials/_header %>
 
-<section class="hero">
-    <div class="hero-text">
-      <p>Quiz App is a quiz app that allows you to create quizzes and take quizzes.</p>
-      <button href="/create">Create a Quiz</button>
+<body>
+  <div class="quiz-container" id="quiz">
+    <div class="quiz-header">
+      <h2 id="question">Question text</h2>
+      <ul>
+        <li>
+          <input type="radio" name="answer" id="a" class="answer">
+          <label for="a" id="a_text">Question</label>
+        </li>
+
+        <li>
+          <input type="radio" name="answer" id="b" class="answer">
+          <label for="b" id="b_text">Question</label>
+        </li>
+
+        <li>
+          <input type="radio" name="answer" id="c" class="answer">
+          <label for="c" id="c_text">Question</label>
+        </li>
+
+        <li>
+          <input type="radio" name="answer" id="d" class="answer">
+          <label for="d" id="d_text">Question</label>
+        </li>
+
+      </ul>
     </div>
-  </section>
-
-    <div class="quiz-display">
-
-    <h1 class="title">Or, Take a quiz!</h1>
-
-    <section class ="quiz-cards">
-      <div class="column">
-        <h2 a href="#">Quiz</h2>
-        <p>Quiz Description</p>
-      </div>
-
-      <div class="column">
-        <h2 a href="#">Quiz</h2>
-        <p>Quiz Description</p>
-      </div>
-
-      <div class="column">
-        <h2 a href="#">Quiz</h2>
-        <p>Quiz Description</p>
-      </div>
-    </div>
-  </section>
-  </main>
+    <button id="submit">Submit</button>
+  </div>
+  <script src="script.js"></script>
+</body>
   <% include partials/_footer %>
 </body>
 
