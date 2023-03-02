@@ -75,3 +75,7 @@ submitBtn.addEventListener("click", () => {
     }
   }
 });
+
+
+// horizontal scroll
+
