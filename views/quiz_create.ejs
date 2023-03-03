@@ -24,8 +24,133 @@
 
 <body>
 <% include partials/_header %>
+<h2>Instructions for user to create a quiz</h2>
+<p>instructions for user to create quiz</p>
+<table class="table">
+  <thead>
+    <th scope="col">Input Your Question and Answers</th>
+    <th scope="col">Check the Correct Answer</th>
+  </thead>
+</table>
+<tbody>
+<div class="quiz-container" id="quiz">
+  <span><p>Question 1:</p><input type="text"></input></span>
+  <ol type="a">
+    <li>
+      <input type="text" name="1answer" id="a" class="answer">
+      <input type="radio" name="1answer" id="a" class="answer">
+    </li>
 
+    <li>
+      <input type="text" name="1answer" id="b" class="answer">
+      <input type="radio" name="1answer" id="b" class="correct-answer">
+    </li>
 
+    <li>
+      <input type="text" name="1answer" id="c" class="answer">
+      <input type="radio" name="1answer" id="c" class="correct-answer">
+    </li>
+
+    <li>
+      <input type="text" name="1answer" id="d" class="answer">
+      <input type="radio" name="1answer" id="d" class="correct-answer">
+    </li>
+  </ol>
+
+  <span><p>Question 2:</p><input type="text"></input></span>
+  <ol type="a">
+    <li>
+      <input type="text" name="2answer" id="a" class="answer">
+      <input type="radio" name="2answer" id="a" class="correct-answer">
+    </li>
+
+    <li>
+      <input type="text" name="2answer" id="b" class="answer">
+      <input type="radio" name="2answer" id="b" class="correct-answer">
+    </li>
+
+    <li>
+      <input type="text" name="2answer" id="c" class="answer">
+      <input type="radio" name="2answer" id="c" class="correct-answer">
+    </li>
+
+    <li>
+      <input type="text" name="2answer" id="d" class="answer">
+      <input type="radio" name="2answer" id="d" class="correct-answer">
+    </li>
+  </ol>
+
+  <span><p>Question 3:</p><input type="text"></input></span>
+  <ol type="a">
+    <li>
+      <input type="text" name="3answer" id="a" class="answer">
+      <input type="radio" name="3answer" id="a" class="correct-answer">
+    </li>
+
+    <li>
+      <input type="text" name="3answer" id="b" class="answer">
+      <input type="radio" name="3answer" id="b" class="correct-answer">
+    </li>
+
+    <li>
+      <input type="text" name="3answer" id="c" class="answer">
+      <input type="radio" name="3answer" id="c" class="correct-answer">
+    </li>
+
+    <li>
+      <input type="text" name="3answer" id="d" class="answer">
+      <input type="radio" name="3answer" id="d" class="correct-answer">
+    </li>
+  </ol>
+
+  <span><p>Question 4:</p><input type="text"></input></span>
+  <ol type="a">
+    <li>
+      <input type="text" name="4answer" id="a" class="answer">
+      <input type="radio" name="4answer" id="a" class="correct-answer">
+    </li>
+
+    <li>
+      <input type="text" name="4answer" id="b" class="answer">
+      <input type="radio" name="4answer" id="b" class="correct-answer">
+    </li>
+
+    <li>
+      <input type="text" name="4answer" id="c" class="answer">
+      <input type="radio" name="4answer" id="c" class="correct-answer">
+    </li>
+
+    <li>
+      <input type="text" name="4answer" id="d" class="answer">
+      <input type="radio" name="4answer" id="d" class="correct-answer">
+    </li>
+  </ol>
+
+  <span><p>Question 5:</p><input type="text"></input></span>
+  <ol type="a">
+    <li>
+      <input type="text" name="5answer" id="a" class="answer">
+      <input type="radio" name="5answer" id="a" class="correct-answer">
+    </li>
+
+    <li>
+      <input type="text" name="5answer" id="b" class="answer">
+      <input type="radio" name="5answer" id="b" class="correct-answer">
+    </li>
+
+    <li>
+      <input type="text" name="5answer" id="c" class="answer">
+      <input type="radio" name="5answer" id="c" class="correct-answer">
+    </li>
+
+    <li>
+      <input type="text" name="5answer" id="d" class="answer">
+      <input type="radio" name="5answer" id="d" class="correct-answer">
+    </li>
+  </ol>
+</div>
+</tbody>
+<button type="submit">Generate Quiz</button>
 
   <% include partials/_footer %>
 </body>

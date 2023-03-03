@@ -23,7 +23,24 @@
 
 <body>
 <% include partials/_header %>
-
+<h2>Your Quizzes</h2>
+<p>instructions for user to see and share their quizzes</p>
+<table class="table">
+  <thead>
+    <th scope="col">Quiz</th>
+    <th scope="col">Share</th>
+    <th scope="col">Delete</th>
+  </thead>
+</table>
+<tbody>
+  <% for (let quiz of quizzes) { %>
+    <tr>
+      <td><a href="/quizzes/<%= quiz.id %>"><%= quiz.title %></a></td>
+      <td><a href="/quizzes/<%= quiz.id %>/share">Share</a></td>
+      <td><a href="/quizzes/<%= quiz.id %>/delete">Delete</a></td>
+    </tr>
+  <% } %>
+</tbody>
 <% include partials/_footer %>
 </body>
 </html>
