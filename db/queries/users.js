@@ -10,6 +10,8 @@ getQuizResultsForUser = function(user) {
 
 // get quizzes that were created by a user (MY QUIZZES)
 getQuizzesCreatedByUser = function(user) {
-    
+    const queryParams = [user.id];
+    const parameterizedQuery = 'SELECT * FROM quizzes WHERE owner_id = $1'
+    return db.query(parameterizedQuery,queryParams);
 }
 
