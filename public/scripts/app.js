@@ -4,12 +4,12 @@
 
 const quizData = [
   {
-    question:
-    a:
-    b:
-    c:
-    d:
-    correct:
+    question: q,
+    a: a,
+    b: b,
+    c: c,
+    d: d,
+    correct: a
   },
 ];
 
@@ -77,5 +77,9 @@ submitBtn.addEventListener("click", () => {
 });
 
 
-// horizontal scroll
+// horizontal scroll on home page
+const scrollArrow = document.createElement('div');
+scrollArrow.classList.add('scroll-arrow');
+scrollArrow.style.opacity = '0.5';
 
+document.querySelector('.horizontal-scroll').appendChild(scrollArrow);
