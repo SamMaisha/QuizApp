@@ -34,4 +34,4 @@ const addNewQuiz = function(newQuizData) {
   return db.query(parameterizedQuery, queryParams); //tested with fake object
 }
 
-// module.exports = { getQuizzes };
+module.exports = { getQuizzes };
