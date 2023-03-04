@@ -81,5 +81,17 @@ submitBtn.addEventListener("click", () => {
 const scrollArrow = document.createElement('div');
 scrollArrow.classList.add('scroll-arrow');
 scrollArrow.style.opacity = '0.5';
-
 document.querySelector('.horizontal-scroll').appendChild(scrollArrow);
+
+
+// scroll to top button
+const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
+const rootElement = document.documentElement;
+
+//display shareable link after hitting create quiz button
+const shareableLink = document.querySelector(".shareable-link");
+const shareableLinkInput = document.querySelector(".shareable-link-input");
+const shareableLinkBtn = document.querySelector(".shareable-link-btn");
+
+
+

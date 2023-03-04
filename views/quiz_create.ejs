@@ -20,138 +20,205 @@
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+  <script src="https://kit.fontawesome.com/53038575dd.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 <% include partials/_header %>
-<h2>Instructions for user to create a quiz</h2>
-<p>instructions for user to create quiz</p>
+<h2 class="create-intro">It's easy to create a quiz on QuizWiz. Simply choose a category, write your own questions, and select the correct answers. Once you've created your quiz, you can share it with your friends via email or social media.
+  But why stop there? You can also share your quiz with the QuizWiz community and challenge other users to test their knowledge. Who knows, your quiz could become the next big thing on Quiz App!</h2>
 <table class="table">
   <thead>
-    <th scope="col">Input Your Question and Answers</th>
-    <th scope="col">Check the Correct Answer</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    <th scope="col"></th>
   </thead>
 </table>
 <tbody>
 <div class="quiz-container" id="quiz">
-  <span><p>Question 1:</p><input type="text"></input></span>
+  <div class="question-box">
+    <h1 class="quiz-title">Name your quiz</h1>
+    <input type="text" class="quiz-title"></input>
+    <h2 class="quiz-category">Choose a Category</h2>
+    <select name="category" id="category" class="quiz-category">
+      <option value="general">General Knowledge</option>
+      <option value="books">Books</option>
+      <option value="film">Film</option>
+      <option value="music">Music</option>
+    </select>
+    <h2>Make Your Quiz Private or Public</h2>
+    <p>(your friends can still access your private quiz if you share your link)</p>
+    <select name="category" id="category" class="quiz-private">
+      <option value="private">Make my Quiz Private</option>
+      <option value="public">Make My Quiz Public</option>
+    </select>
+    </div>
+    </div>
+  <div class="question-box">
+  <h2 class="question">Question 1</h2>
+  <input type="text" class="question-text"></input>
+  <h2 class="question">Answers</h2>
+  <h4>(check the correct answer)</h4>
   <ol type="a">
     <li>
+      <h3>a.</h3>
       <input type="text" name="1answer" id="a" class="answer">
-      <input type="radio" name="1answer" id="a" class="answer">
+      <input type="radio" name="1answer" id="a" class="correct-answer">
     </li>
 
     <li>
+      <h3>b.</h3>
       <input type="text" name="1answer" id="b" class="answer">
       <input type="radio" name="1answer" id="b" class="correct-answer">
     </li>
 
     <li>
+      <h3>c.</h3>
       <input type="text" name="1answer" id="c" class="answer">
       <input type="radio" name="1answer" id="c" class="correct-answer">
     </li>
 
     <li>
+      <h3>d.</h3>
       <input type="text" name="1answer" id="d" class="answer">
       <input type="radio" name="1answer" id="d" class="correct-answer">
     </li>
   </ol>
+</div>
 
-  <span><p>Question 2:</p><input type="text"></input></span>
+<div class="question-box">
+  <h2 class="question">Question 2</h2>
+  <input type="text" class="question-text"></input></span>
+  <h2 class="question">Answers</h2>
+  <h4>(check the correct answer)</h4>
   <ol type="a">
     <li>
+      <h3>a.</h3>
       <input type="text" name="2answer" id="a" class="answer">
       <input type="radio" name="2answer" id="a" class="correct-answer">
     </li>
 
     <li>
+      <h3>b.</h3>
       <input type="text" name="2answer" id="b" class="answer">
       <input type="radio" name="2answer" id="b" class="correct-answer">
     </li>
 
     <li>
+      <h3>c.</h3>
       <input type="text" name="2answer" id="c" class="answer">
       <input type="radio" name="2answer" id="c" class="correct-answer">
     </li>
 
     <li>
+      <h3>d.</h3>
       <input type="text" name="2answer" id="d" class="answer">
       <input type="radio" name="2answer" id="d" class="correct-answer">
     </li>
   </ol>
+</div>
 
-  <span><p>Question 3:</p><input type="text"></input></span>
+<div class="question-box">
+  <h2 class="question">Question 3</h2>
+  <input type="text" class="question-text"></input>
+  <h2 class="question">Answers</h2>
+  <h4>(check the correct answer)</h4>
   <ol type="a">
     <li>
+      <h3>a.</h3>
       <input type="text" name="3answer" id="a" class="answer">
       <input type="radio" name="3answer" id="a" class="correct-answer">
     </li>
 
     <li>
+      <h3>b.</h3>
       <input type="text" name="3answer" id="b" class="answer">
       <input type="radio" name="3answer" id="b" class="correct-answer">
     </li>
 
     <li>
+      <h3>c.</h3>
       <input type="text" name="3answer" id="c" class="answer">
       <input type="radio" name="3answer" id="c" class="correct-answer">
     </li>
 
     <li>
+      <h3>d.</h3>
       <input type="text" name="3answer" id="d" class="answer">
       <input type="radio" name="3answer" id="d" class="correct-answer">
     </li>
   </ol>
+</div>
 
-  <span><p>Question 4:</p><input type="text"></input></span>
+<div class="question-box">
+  <h2 class="question">Question 4</h2><input type="text"></input>
+  <h2 class="question">Answers</h2>
+  <h4>(check the correct answer)</h4>
   <ol type="a">
     <li>
+      <h3>a.</h3>
       <input type="text" name="4answer" id="a" class="answer">
       <input type="radio" name="4answer" id="a" class="correct-answer">
     </li>
 
     <li>
+      <h3>b.</h3>
       <input type="text" name="4answer" id="b" class="answer">
       <input type="radio" name="4answer" id="b" class="correct-answer">
     </li>
 
     <li>
+      <h3>c.</h3>
       <input type="text" name="4answer" id="c" class="answer">
       <input type="radio" name="4answer" id="c" class="correct-answer">
     </li>
 
     <li>
+      <h3>d.</h3>
       <input type="text" name="4answer" id="d" class="answer">
       <input type="radio" name="4answer" id="d" class="correct-answer">
     </li>
   </ol>
+</div>
 
-  <span><p>Question 5:</p><input type="text"></input></span>
+<div class="question-box">
+  <h2 class="question">Question 5</h2>
+  <input type="text" class="question-text"></input>
+  <h2 class="question">Answers</h2>
+  <h4>(check the correct answer)</h4>
   <ol type="a">
     <li>
+      <h3>a.</h3>
       <input type="text" name="5answer" id="a" class="answer">
       <input type="radio" name="5answer" id="a" class="correct-answer">
     </li>
 
     <li>
+      <h3>b.</h3>
       <input type="text" name="5answer" id="b" class="answer">
       <input type="radio" name="5answer" id="b" class="correct-answer">
     </li>
 
     <li>
+      <h3>c.</h3>
       <input type="text" name="5answer" id="c" class="answer">
       <input type="radio" name="5answer" id="c" class="correct-answer">
     </li>
 
     <li>
+      <h3>d.</h3>
       <input type="text" name="5answer" id="d" class="answer">
       <input type="radio" name="5answer" id="d" class="correct-answer">
     </li>
   </ol>
 </div>
+</div>
 </tbody>
 <button type="submit">Generate Quiz</button>
-
+<div class="tbd"></div>
   <% include partials/_footer %>
 </body>
 
