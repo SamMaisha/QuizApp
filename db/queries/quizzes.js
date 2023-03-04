@@ -14,7 +14,7 @@ const getQuizzes = () => {
 const getSelectedQuiz = function(quiz_id) {
   return db.query('SELECT quizzes.id, title, description, quiz_questions.* FROM quiz_questions JOIN quizzes ON quiz_id = quizzes.id')
   .then(data => {
-    const quizData = data.rows;
+    const quizData = data.rows[0];
     return quizData; //will make this function parameterized based on whatever quiz_id is, just wanted to make sure it works
   })
 }
