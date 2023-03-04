@@ -1,14 +1,16 @@
+//Variables
+
 $base-font-size: 16px;
 $base-line-height: 1.5;
 
-$primary-color: #3AC5C9;
-$secondary-color: #3E4159;
+$primary-color: #3ac5c9;
+$secondary-color: #3e4159;
 $white-color: #fff;
-$accent-color: #C1F0F1;
+$accent-color: #c1f0f1;
 
 $width: 100%;
 
-$font-family: 'Roboto', Serif;
+$font-family: "Roboto", Serif;
 $font-weight-light: 300;
 $font-weight-normal: 400;
 $font-weight-bold: 600;
@@ -53,24 +55,24 @@ body {
   left: 2rem;
 
   a {
-  font-family: $font-family;
-  font-size: 1.5rem;
-  color: $secondary-color;
-  letter-spacing: 0.1rem;
+    font-family: $font-family;
+    font-size: 1.5rem;
+    color: $secondary-color;
+    letter-spacing: 0.1rem;
   }
 
   span {
-  font-family: $font-family;
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: $primary-color;
-  letter-spacing: 0.1rem;
+    font-family: $font-family;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: $primary-color;
+    letter-spacing: 0.1rem;
   }
 }
 
 .nav-list {
   position: absolute;
-  top:45%;
+  top: 45%;
   left: 50%;
   display: flex;
   flex-direction: row;
@@ -86,20 +88,25 @@ body {
 }
 
 .menu {
-width: 4rem;
-height: 2.5rem;
-position: fixed;
-top: 2rem;
-right: 2rem;
-z-index: 100;
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
+  width: 4rem;
+  height: 2.5rem;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 //Typography
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: $font-weight-bold;
 }
 
@@ -128,7 +135,8 @@ button {
   }
 }
 
-input, textarea {
+input,
+textarea {
   display: block;
   width: 100%;
   border: none;
@@ -137,18 +145,17 @@ input, textarea {
   font-family: $font-family;
   font-weight: $font-weight-normal;
 
- color: $secondary-color;
+  color: $secondary-color;
   &:focus {
     outline: none;
     border-color: $white-color;
-    box-shadow: 0 0 0 0.2rem $primary-color;
   }
 }
 
 .hero {
   width: 100%;
   height: auto;
-  background: url('#') no-repeat center center/cover;
+  background: url("#") no-repeat center center/cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -160,80 +167,136 @@ input, textarea {
 }
 
 .hero-img {
-  width:75%;
-   height:auto;
-   padding: 1rem;
+  width: 75%;
+  height: auto;
+  padding: 1rem;
 }
 
 .quiz-cards {
-display: flex;
+  display: flex;
   white-space: nowrap;
-direction: row;
+  direction: row;
   align-items: center;
   justify-content: center;
 }
 
-  .icon-container {
-    background-color: $secondary-color;
-    border-radius: $border-radius;
-    width: 170px;
-    height: 170px;
-    margin-left: 100px;
-    margin-right: 100px;
+.icon-container {
+  background-color: $secondary-color;
+  border-radius: $border-radius;
+  width: 170px;
+  height: 170px;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+i {
+  color: $primary-color;
+}
+
+.quiz-display {
+  background-color: $accent-color;
+  width: 95%;
+  align-items: center;
+  border-radius: $border-radius;
+  overflow-x: scroll;
+  white-space: nowrap;
+  margin: 1rem;
+
+  .title {
     display: flex;
     align-items: center;
     justify-content: center;
   }
-
-  i {
-    color: $primary-color;
-  }
-
-  .quiz-display {
-    background-color: $accent-color;
-    width: 95%;
-    align-items: center;
-    border-radius: $border-radius;
-    overflow-x: scroll;
-    white-space: nowrap;
-    margin: 1rem;
-
-    .title {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .column {
-      color: $white-color;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content:flex-end;
-      width: 200px;
-      height: auto;
-
-
-    }
-    p {
-  margin-top: -10px;
-}
-  }
-
-  .tbd {
+  .column {
+    color: $white-color;
     display: flex;
-    height: 400px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 200px;
+    height: auto;
   }
+  p {
+    margin-top: -10px;
+  }
+}
 
-  .footer {
-    width: 100%;
-    height: 100px;
-    color: $primary-color;
-    background-color: $secondary-color;
+.tbd {
+  display: flex;
+  height: 400px;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  color: $primary-color;
+  background-color: $secondary-color;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+// quiz create page
+
+.table {
+  width: 100%;
+}
+
+.question-box {
+  display: flex;
+  flex-direction: column;
+  align-items: row;
+  justify-content: center;
+  margin: 1rem;
+  padding: 1rem;
+  width: 600px;
+  border-radius: $border-radius;
+  color: $primary-color;
+  background-color: $secondary-color;
+
+  li {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem;
+    margin: 1rem;
+    justify-content: space-evenly;
   }
 
-// quiz page
+  .question {
+    display: flex;
+    justify-content: center;
+  }
+
+  h4 {
+    display: flex;
+    justify-content: center;
+    margin: -1rem;
+  }
+
+  .correct-answer {
+    width: 10%;
+  }
+
+  h3 {
+    margin: 0;
+    margin-left: -2rem;
+    margin-right: 1rem;
+  }
+  .question-text {
+    width: 92%;
+    margin-left: 1.25rem;
+  }
+  input[type="radio"] {
+    outline: transparent;
+  }
+}
+
+.create-intro {
+  margin-top: 100px;
+  margin-left: 250px;
+  margin-right: 250px;
+}
