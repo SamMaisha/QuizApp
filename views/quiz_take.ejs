@@ -35,11 +35,11 @@
 <form action="/:quizid" method="GET">
   <div class="quiz-container" id="quiz">
     <h2 id="question">Question 1</h2>
-    <img src="<%= quiz_question[0].photo_url %>">
-    <p><%= quiz_question[0].question %></p>
+    <img src="<%= quiz_questions[0].photo_url %>">
+    <p><%= quiz_questions[0].question %></p>
     <ol type="a">
       <li>
-        <input type="radio" name="1answer" id="a" class="answer"><% = quiz_question[0].answer[0] %><br>
+        <input type="radio" name="1answer" id="a" class="answer"><% = quiz_questions[0].answer[0] %><br>
         <label for="a" id="a_text">Question</label>
       </li>
 
@@ -66,8 +66,8 @@
 
   <div class="quiz-container" id="quiz">
     <h2 id="question">Question 2</h2>
-    <img src="<%= quiz_question[1].photo_url %>">
-    <p><%= quiz_question[1].question %></p>
+    <img src="<%= quiz_questions[1].photo_url %>">
+    <p><%= quiz_questions[1].question %></p>
     <ol type="a">
       <li>
         <input type="radio" name="2answer" id="a" class="answer">
@@ -95,8 +95,8 @@
 
    <div class="quiz-container" id="quiz">
     <h2 id="question">Question 3</h2>
-    <img src="<%= quiz_question[2].photo_url %>">
-    <p><%= quiz_question[2].question %></p>
+    <img src="<%= quiz_questions[2].photo_url %>">
+    <p><%= quiz_questions[2].question %></p>
     <ol type="a">
       <li>
         <input type="radio" name="3answer" id="a" class="answer">
@@ -125,8 +125,8 @@
 
    <div class="quiz-container" id="quiz">
     <h2 id="question">Question 4</h2>
-    <img src="<%= quiz_question[3].photo_url %>">
-    <p><%= quiz_question[3].question %></p>
+    <img src="<%= quiz_questions[3].photo_url %>">
+    <p><%= quiz_questions[3].question %></p>
     <ol type="a">
       <li>
         <input type="radio" name="4answer" id="a" class="answer">
@@ -154,8 +154,8 @@
 
    <div class="quiz-container" id="quiz">
     <h2 id="question">Question 5</h2>
-    <img src="<%= quiz_question[0].photo_url %>">
-    <p><%= quiz_question[0].question %></p>
+    <img src="<%= quiz_questions[0].photo_url %>">
+    <p><%= quiz_questions[0].question %></p>
     <ol>
       <li>
         <input type="radio" name="5answer" id="a" class="answer">
