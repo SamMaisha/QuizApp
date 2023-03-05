@@ -27,17 +27,19 @@
 <% include partials/_header %>
 
 <body>
-  <h1>Quiz Name</h1>
-  <h2>Quiz Description</h2>
-  <h3>Quiz Author</h3>
+  <h1><%= quizzes.title %></h1>
+  <h2><%= quizzes.description %></h2>
+  <h3><%= users.name %></h3>
+  <h4><%= quizzes.category %></h4>
 
-  <!-- Question 1 -->
-
+<form action="/:quizid" method="GET">
   <div class="quiz-container" id="quiz">
-    <h2 id="question">Question 1:</h2>
+    <h2 id="question">Question 1</h2>
+    <img src="<%= quiz_question[0].photo_url %>">
+    <p><%= quiz_question[0].question %></p>
     <ol type="a">
       <li>
-        <input type="radio" name="1answer" id="a" class="answer">
+        <input type="radio" name="1answer" id="a" class="answer"><% = quiz_question[0].answer[0] %><br>
         <label for="a" id="a_text">Question</label>
       </li>
 
@@ -57,12 +59,15 @@
       </li>
     </ol>
   </div>
+  </form>
 
 
   <!-- Question 2 -->
 
   <div class="quiz-container" id="quiz">
-    <h2 id="question">Question 2:</h2>
+    <h2 id="question">Question 2</h2>
+    <img src="<%= quiz_question[1].photo_url %>">
+    <p><%= quiz_question[1].question %></p>
     <ol type="a">
       <li>
         <input type="radio" name="2answer" id="a" class="answer">
@@ -89,7 +94,9 @@
    <!-- Question 3 -->
 
    <div class="quiz-container" id="quiz">
-    <h2 id="question">Question 3:</h2>
+    <h2 id="question">Question 3</h2>
+    <img src="<%= quiz_question[2].photo_url %>">
+    <p><%= quiz_question[2].question %></p>
     <ol type="a">
       <li>
         <input type="radio" name="3answer" id="a" class="answer">
@@ -117,7 +124,9 @@
    <!-- Question 4 -->
 
    <div class="quiz-container" id="quiz">
-    <h2 id="question">Question 4:</h2>
+    <h2 id="question">Question 4</h2>
+    <img src="<%= quiz_question[3].photo_url %>">
+    <p><%= quiz_question[3].question %></p>
     <ol type="a">
       <li>
         <input type="radio" name="4answer" id="a" class="answer">
@@ -144,7 +153,9 @@
    <!-- Question 5 -->
 
    <div class="quiz-container" id="quiz">
-    <h2 id="question">Question 5:</h2>
+    <h2 id="question">Question 5</h2>
+    <img src="<%= quiz_question[0].photo_url %>">
+    <p><%= quiz_question[0].question %></p>
     <ol>
       <li>
         <input type="radio" name="5answer" id="a" class="answer">

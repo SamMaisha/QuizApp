@@ -28,8 +28,9 @@
 
 <body>
 <% include partials/_header %>
+
 <h1 class="create-intro">It's easy to create a quiz on QuizWiz!</h1>
-<h2> Simply choose a category, write your own questions, and select the correct answers.</h2>
+<h2> Simply write your own questions and possible answers, and check the correct answer for each question.</h2>
 <table class="table">
   <thead>
     <th scope="col"></th>
@@ -40,7 +41,7 @@
 <tbody>
 <div class="quiz-container" id="quiz">
   <div class="question-box">
-    <h1 class="quiz-title">Name your quiz</h1>
+    <h1 class="quiz-name">Name your quiz</h1>
     <input type="text" class="quiz-title"></input>
     <h2 class="quiz-category">Choose a Category</h2>
     <select name="category" id="category" class="quiz-category">
@@ -229,8 +230,11 @@
 </div>
 </div>
 </tbody>
-<button type="submit">Generate Quiz</button>
-<div class="tbd"></div>
+<button type="button" onclick="addNewQuiz()">Generate Quiz</button>
+<div id="success.message"></div>
+<div id="shareable-link"></div>
+
+
   <% include partials/_footer %>
 </body>
 
