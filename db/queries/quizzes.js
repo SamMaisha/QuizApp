@@ -3,29 +3,32 @@ const db = require('../connection');
 
 // get all public quizzes from quizzes table (HOMEPAGE)
 const getQuizzes = () => {
-  return db.query('SELECT * FROM quizzes')
+  return db.query('SELECT quizzes.*, users.name, type as category FROM quizzes JOIN users ON owner_id = users.id')
     .then(data => {
       const allQuizzes = data.rows;
-      console.log(data.rows);
+      console.log(allQuizzes);
       return allQuizzes;
     });
 };
 
 // get individual quiz from quizzes table when user clicks on a quiz - show quiz questions and options (VIEW QUIZ)
 const getSelectedQuiz = function(quiz_id) {
-  return db.query('SELECT quizzes.id, title, description, quiz_questions.* FROM quiz_questions JOIN quizzes ON quiz_id = quizzes.id')
-  .then(data => {
-    const quizData = data.rows[0];
-    return quizData; //will make this function parameterized based on whatever quiz_id is, just wanted to make sure it works
-  })
-}
+  const queryParams = [quiz_id];
+  const parameterizedQuery = 'SELECT title, description, quiz_questions.*, quizzes.type, users.name FROM quiz_questions JOIN quizzes ON quiz_id = quizzes.id JOIN users ON owner_id = users.id WHERE quiz_id = $1';
+  return db.query(parameterizedQuery, queryParams)
+    .then(data => {
+      const selectedQuiz = data.rows;
+      console.log(selectedQuiz)
+      return selectedQuiz;
+    });
+};
 
 // insert results to quiz_results table after user has taken quiz (VIEW QUIZ)
 
 const addQuizResult = function(quizResultData) {
   const queryParams = [quizResultData.id, quizResultData.quiz_id, quizResultData.user_id, quizResultData.score, quizResultData.completed_at, quizResultData.link];
   const parameterizedQuery = 'INSERT INTO quiz_results VALUES ($1, $2, $3, $4, $5, $6)';
-  return db.query(parameterizedQuery, queryParams); //tested with fake object
+  return db.query(parameterizedQuery, queryParams);
 }
 
 // insert new quiz to relevant tables when a user creates a quiz (CREATE QUIZ)
