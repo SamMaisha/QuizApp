@@ -15,3 +15,4 @@ CREATE TABLE quizzes (
   thumbnail_photo_url VARCHAR(255),
   cover_photo_url VARCHAR(255)
 );
+
