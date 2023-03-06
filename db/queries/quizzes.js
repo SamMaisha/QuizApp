@@ -14,7 +14,7 @@ const getQuizzes = () => {
 // get individual quiz from quizzes table when user clicks on a quiz - show quiz questions and options (VIEW QUIZ)
 const getSelectedQuiz = function(quiz_id) {
   const queryParams = [quiz_id];
-  const parameterizedQuery = 'SELECT title, description, quiz_questions.*, quizzes.type, users.name FROM quiz_questions JOIN quizzes ON quiz_id = quizzes.id JOIN users ON owner_id = users.id WHERE quiz_id = $1';
+  const parameterizedQuery = 'SELECT title, description, quiz_questions.*, quizzes.type, users.name as owner_name FROM quiz_questions JOIN quizzes ON quiz_id = quizzes.id JOIN users ON owner_id = users.id WHERE quiz_id = $1';
   return db.query(parameterizedQuery, queryParams)
     .then(data => {
       const selectedQuiz = data.rows;
@@ -37,5 +37,7 @@ const addNewQuiz = function(newQuizData) {
   const parameterizedQuery = 'INSERT INTO quizzes VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)';
   return db.query(parameterizedQuery, queryParams); //tested with fake object
 }
+
+getSelectedQuiz(1);
 
 module.exports = { getQuizzes, getSelectedQuiz, addQuizResult, addNewQuiz };
