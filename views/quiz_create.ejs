@@ -31,17 +31,13 @@
 
 <h1 class="create-intro">It's easy to create a quiz on QuizWiz!</h1>
 <h2> Simply write your own questions and possible answers, and check the correct answer for each question.</h2>
-<table class="table">
-  <thead>
-    <th scope="col"></th>
-    <th scope="col"></th>
-    <th scope="col"></th>
-  </thead>
-</table>
-<tbody>
+
+
 <div class="quiz-container" id="quiz">
   <div class="question-box">
-    <h1 class="quiz-name">Name your quiz</h1>
+    <h2 class="quiz-name">Name Your Quiz</h2>
+    <input type="text" class="quiz-title"></input>
+    <h2 class="quiz-description">Describe Your Quiz</h2>
     <input type="text" class="quiz-title"></input>
     <h2 class="quiz-category">Choose a Category</h2>
     <select name="category" id="category" class="quiz-category">
@@ -68,7 +64,6 @@
       <option value="private">Make my Quiz Private</option>
       <option value="public">Make My Quiz Public</option>
     </select>
-    </div>
     </div>
   <div class="question-box">
   <h2 class="question">Question 1</h2>
@@ -107,7 +102,7 @@
   <input type="text" class="question-text"></input></span>
   <h2 class="question">Answers</h2>
   <h4>(check the correct answer)</h4>
-  <ol type="a">
+  <ol>
     <li>
       <h3>a.</h3>
       <input type="text" name="2answer" id="a" class="answer">
@@ -139,7 +134,7 @@
   <input type="text" class="question-text"></input>
   <h2 class="question">Answers</h2>
   <h4>(check the correct answer)</h4>
-  <ol type="a">
+  <ol>
     <li>
       <h3>a.</h3>
       <input type="text" name="3answer" id="a" class="answer">
@@ -170,7 +165,7 @@
   <h2 class="question">Question 4</h2><input type="text"></input>
   <h2 class="question">Answers</h2>
   <h4>(check the correct answer)</h4>
-  <ol type="a">
+  <ol>
     <li>
       <h3>a.</h3>
       <input type="text" name="4answer" id="a" class="answer">
@@ -229,11 +224,11 @@
   </ol>
 </div>
 </div>
-</tbody>
+
 <button type="button" onclick="addNewQuiz()">Generate Quiz</button>
 <div id="success.message"></div>
 <div id="shareable-link"></div>
-
+<div class="tbd"></div>
 
   <% include partials/_footer %>
 </body>
