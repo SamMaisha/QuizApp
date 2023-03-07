@@ -10,7 +10,7 @@ $accent-color: #c1f0f1;
 
 $width: 100%;
 
-$font-family: "Roboto", Serif;
+$font-family: "Open Sans", sans-serif;
 $font-weight-light: 300;
 $font-weight-normal: 400;
 $font-weight-bold: 600;
@@ -45,6 +45,9 @@ h4,
 h5,
 h6 {
   font-weight: $font-weight-bold;
+  &:hover {
+    color: lighten($primary-color, 10%);
+  }
 }
 
 a {
@@ -69,15 +72,18 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   &:hover {
-    background-color: darken($primary-color, 10%);
+    background-color: lighten($primary-color, 10%);
   }
 }
 
 input,
-textarea {
+textarea,
+select {
   display: block;
   width: 100%;
+  height: auto;
   border: none;
+  padding: 5px;
   border-radius: $border-radius;
   background-color: lighten($white-color, 40%);
   font-family: $font-family;
@@ -95,12 +101,11 @@ textarea {
 .navbar {
   width: 100%;
   height: 2rem;
-  background-color: $white-color;
+  background-color: $accent-color;
   position: fixed;
   top: 0;
   z-index: 10;
   padding: 3rem;
-  border-bottom: 0.1rem solid $primary-color;
 
   .nav-list {
     position: absolute;
@@ -111,12 +116,6 @@ textarea {
     align-items: center;
     justify-content: space-evenly;
     width: 50%;
-  }
-
-  .line {
-    width: 50%;
-    height: 0.1rem;
-    background-color: $secondary-color;
   }
 
   .menu {
@@ -149,41 +148,80 @@ textarea {
     font-family: $font-family;
     font-size: 2.5rem;
     font-weight: bold;
-    color: $primary-color;
+    color: $secondary-color;
     letter-spacing: 0.1rem;
   }
 }
 
 // Hero Styles
 
-.hero {
+.hero-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: auto;
-  background: url("#") no-repeat center center/cover;
+  margin: 3rem;
+  padding: 6rem;
+  background-color: $accent-color;
+}
+
+.hero-text {
+  width: 70%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  justify-content: flex-end;
+  justify-content: center;
   padding-bottom: 20px;
   margin-bottom: 20px;
-  margin-top: 50px;
+  background-color: $accent-color;
 }
 
 .hero-img {
-  width: 75%;
-  height: auto;
-  padding: 1rem;
+  background-color: $accent-color;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 1rem;
 }
 
 // Quiz Display Styles
-
-.quiz-cards {
+.take-quiz-text {
+  width: 100%;
+  height: auto;
   display: flex;
-  white-space: nowrap;
-  direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  background-color: $white-color;
+}
+
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  margin: 20px;
+  padding: 10rem;
+  background-color: $white-color;
+}
+
+.quiz-cards {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: auto;
+  overflow-x: auto;
 }
 
 .icon-container {
@@ -215,6 +253,7 @@ i {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
   }
   .column {
     color: $white-color;
@@ -271,10 +310,11 @@ i {
   justify-content: center;
   margin: 1rem;
   padding: 1rem;
-  width: 600px;
+  width: 60%;
   border-radius: $border-radius;
   color: $primary-color;
   background-color: $secondary-color;
+
 
    li {
     display: flex;
@@ -315,4 +355,9 @@ i {
 
 
 
-
+svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
