@@ -15,6 +15,9 @@ $font-weight-light: 300;
 $font-weight-normal: 400;
 $font-weight-bold: 600;
 
+$font-size-large: 2rem;
+$font-size-medium: 1.5rem;
+
 $border-radius: 1.5rem;
 
 // Global styles
@@ -22,6 +25,7 @@ $border-radius: 1.5rem;
 html {
   font-size: $base-font-size;
   line-height: $base-line-height;
+
 }
 
 body {
@@ -32,8 +36,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  padding-top: 90px;
+  height: 100%;
+
 }
 
 //Typography
@@ -44,7 +49,23 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: $font-family;
+  text-align: center;
   font-weight: $font-weight-bold;
+  &:hover {
+    color: lighten($primary-color, 10%);
+  }
+}
+
+h1 {
+  font-size: $font-size-large;
+  &:hover {
+    color: lighten($primary-color, 10%);
+  }
+}
+
+h2 {
+  font-size: $font-size-medium;
   &:hover {
     color: lighten($primary-color, 10%);
   }
@@ -116,6 +137,16 @@ select {
     align-items: center;
     justify-content: space-evenly;
     width: 50%;
+    color: $primary-color;
+  }
+
+  .nav-link {
+    font-family: $font-family;
+    color: $secondary-color;
+    text-decoration: none;
+    &:hover {
+      color: lighten($primary-color, 10%);
+    }
   }
 
   .menu {
@@ -142,6 +173,9 @@ select {
     font-size: 1.5rem;
     color: $secondary-color;
     letter-spacing: 0.1rem;
+    &:hover {
+      color: lighten($primary-color, 10%);
+    }
   }
 
   span {
@@ -162,8 +196,7 @@ select {
   justify-content: center;
   width: 100%;
   height: auto;
-  margin: 3rem;
-  padding: 6rem;
+  padding: 3rem;
   background-color: $accent-color;
 }
 
@@ -176,18 +209,21 @@ select {
   justify-content: center;
   padding-bottom: 20px;
   margin-bottom: 20px;
+  margin-right: 4rem;
   background-color: $accent-color;
 }
 
 .hero-img {
-  background-color: $accent-color;
-  width: 80%;
+
+  width: 75%;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-end;
-  margin: 1rem;
-}
+  align-items: center;
+  justify-content: center;
+  margin-left: 4rem;
+
+
+ }
 
 // Quiz Display Styles
 .take-quiz-text {
@@ -197,40 +233,26 @@ select {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
   background-color: $white-color;
 }
 
-.quiz-container {
+
+.quiz-cards {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
   width: 100%;
   height: auto;
-  margin: 20px;
-  padding: 10rem;
-  background-color: $white-color;
-}
-
-.quiz-cards {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-  height: auto;
-  overflow-x: auto;
+  overflow-x: scroll;
 }
 
 .icon-container {
   background-color: $secondary-color;
   border-radius: $border-radius;
-  width: 170px;
-  height: 170px;
-  margin-left: 100px;
-  margin-right: 100px;
+  width: 150px;
+  height: 150px;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -238,36 +260,46 @@ select {
 
 i {
   color: $primary-color;
+
 }
 
-.quiz-display {
-  background-color: $accent-color;
-  width: 95%;
-  align-items: center;
-  border-radius: $border-radius;
-  overflow-x: scroll;
-  white-space: nowrap;
-  margin: 1rem;
-
-  .title {
+  .column {
+    color: $secondary-color;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+
+    p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      padding-left: 10px;
+      padding-right: 10px;
+      word-wrap: nowrap;
+      margin-top: 0;
+      text-align: center;
+    }
+  }
+  .take-quiz-container {
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+
   }
-  .column {
-    color: $white-color;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 200px;
-    height: auto;
+  .take-quiz-img {
+    background: transparent;
+    padding-top: 1rem;
+    padding-right: 5rem;
+    padding-bottom: 1rem;
+    width: 35%;
+    height: 35%;
   }
-  p {
-    margin-top: -10px;
-  }
-}
+
+
+
 
 // TBD Display Styles
 
@@ -287,20 +319,29 @@ i {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 0 2rem;
+  position: sticky;
 }
 
 
 // quiz create page
 
 .create-intro {
-  margin-top: 100px;
-  margin-left: 250px;
-  margin-right: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  background-color: $accent-color;
 }
 
-.table {
-  width: 100%;
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .question-box {
@@ -354,10 +395,89 @@ i {
 
 
 
+// Quiz Results Page
 
-svg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
+.table {
+
+  border-collapse: collapse;
+  font-family: $font-family;
+  margin: 5rem auto;
+  width: 80%;
+  text-align: center;
 }
+
+th,
+td {
+  font-family: $font-family;
+  text-align: center;
+  padding: 1rem;
+}
+
+thead > tr > th {
+  font-size: 18px;
+  border-bottom: 2px solid $secondary-color;
+  border-top: transparent;
+}
+
+
+.results-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  background-color: $accent-color;
+}
+
+
+
+.img-shopping-cart {
+  width: 27%;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-bottom: 1rem;
+}
+
+.img-on-couch {
+  padding-top: 6rem;
+  width: 27%;
+  height: auto;
+  position: absolute;
+   top: 0;
+   left: 0;
+
+}
+
+.create-instructions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: $accent-color;
+}
+
+ .create-instructions-1, .create-instructions-2, .create-instructions-3, .create-instructions-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: $accent-color;
+
+  i {
+    font-size: 2rem;
+    color: $secondary-color;
+  }
+ }
+ .button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+
+ }

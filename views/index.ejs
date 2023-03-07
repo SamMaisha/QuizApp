@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz Wiz</title>
+    <title>Quizzes with Friends</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
     <link rel="stylesheet" href="/vendor/border-box.css" />
@@ -16,11 +16,11 @@
 
     <link
       href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Roboto:ital,wght@0,100;0,400;1,400&display=swap"
-      rel="stylesheet"
+      rel="stylesheet"/>
       <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-    />
+
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script src="/scripts/app.js"></script>
@@ -40,21 +40,25 @@
       <div class="hero-container">
 
       <div class="hero-img">
-      <img src="/images/business-partnership.png" class="hero-img" alt="Business Partnership">
+      <img src="/images/friends.png" class="hero-img" alt="Business Partnership">
       </div>
       <div class="hero-text">
-        <h3>Want to put your friend's knowledge to the test?</h3>
-        <h4>Create custom quizzes and challenge your friends!</h4>
+        <h1>Want to put your friend's knowledge to the test?</h1>
+        <h2>Create custom quizzes and challenge your friends!</h2>
         <a href="/quizzes/create"><button>Create a Quiz</button></a>
       </div>
       </div>
 
 
       <!-- <form action="/:quizid" method="GET" class="quiz-display"> -->
-        <h3 class="take-quiz-text">
+        <div class="take-quiz-container">
+          <div class="take-quiz-text">
+        <h1 class="take-quiz-text">
           Or, maybe you are a trivia master looking for a challenge.
-        </h3>
-        <h4 class="take-quiz-text">Choose a quiz and see how much you know!</h4>
+        </h1>
+        <h2 class="take-quiz-text">Choose a quiz and see how much you know!</h2>
+      </div>
+        <img src="/images/step out of phone (1).png" alt="" class="take-quiz-img">
       </div>
         <div class="quiz-cards">
            <% quizzes.forEach((quiz) => { %>
@@ -68,9 +72,12 @@
           </div>
           <% }) %>
         </div>
-      </form>
+      </div>
+      <!-- </form> -->
 
-      <section class="tbd"></section>
+      <section class="tbd">
+        <img src="/images/zen.png" alt="">
+      </section>
     </main>
 
     <% include partials/_footer %>
