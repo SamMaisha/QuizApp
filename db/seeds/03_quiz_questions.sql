@@ -13,20 +13,20 @@ insert into quiz_questions (id, quiz_id, question, photo_url) values (10, 2, 'Wh
 
 insert into quiz_questions (id, quiz_id, question, photo_url) values (11, 3, 'What does an ohm measure?', 'http://dummyimage.com/154x100.png/ff4444/ffffff');
 insert into quiz_questions (id, quiz_id, question, photo_url) values (12, 3, 'Which of these is NOT a state of matter?', 'http://dummyimage.com/135x100.png/dddddd/000000');
-insert into quiz_questions (id, quiz_id, question, photo_url) values (13, 3, 'True or false: Velocity and acceleration have the same meaning.', 'http://dummyimage.com/103x100.png/cc0000/ffffff');
-insert into quiz_questions (id, quiz_id, question, photo_url) values (14, 3, 'The ability of a substance to return to its shape after being deformed is called ______.', 'http://dummyimage.com/122x100.png/cc0000/ffffff');
+insert into quiz_questions (id, quiz_id, question, photo_url) values (13, 3, 'The ability of a substance to return to its shape after being deformed is called ______.', 'http://dummyimage.com/103x100.png/cc0000/ffffff');
+insert into quiz_questions (id, quiz_id, question, photo_url) values (14, 3, 'The change in pitch of an ambulance siren, when the ambulance is in motion, is called the ______ effect.', 'http://dummyimage.com/122x100.png/cc0000/ffffff');
 insert into quiz_questions (id, quiz_id, question, photo_url) values (15, 3, 'In nuclear physics, what is the opposite of fusion?', 'http://dummyimage.com/148x100.png/dddddd/000000');
 
 
 insert into quiz_questions (id, quiz_id, question, photo_url) values (16, 4, 'In angiosperms, the endosperm functions in', 'http://dummyimage.com/154x100.png/ff4444/ffffff');
-insert into quiz_questions (id, quiz_id, question, photo_url) values (17, 4, 'Which of the following features of angiosperms has probably contributed most to their evolutionary success relative to all other land plant groups?', 'http://dummyimage.com/135x100.png/dddddd/000000');
+insert into quiz_questions (id, quiz_id, question, photo_url) values (17, 4, 'Phototropism in plants is mediated by what plant growth substance?', 'http://dummyimage.com/135x100.png/dddddd/000000');
 insert into quiz_questions (id, quiz_id, question, photo_url) values (18, 4, 'Only female gametes are produced in which of the following structures?', 'http://dummyimage.com/103x100.png/cc0000/ffffff');
 insert into quiz_questions (id, quiz_id, question, photo_url) values (19, 4, 'Which of the following statements about xylem and phloem is correct?', 'http://dummyimage.com/122x100.png/cc0000/ffffff');
 insert into quiz_questions (id, quiz_id, question, photo_url) values (20, 4, 'Which of the following factors is most important in the movement of water up a tall tree?', 'http://dummyimage.com/148x100.png/dddddd/000000');
 
-insert into quiz_questions (id, quiz_id, question, photo_url) values (21, 5, 'What does Berger (1963) describe as a metaphor for social reality?', 'http://dummyimage.com/154x100.png/ff4444/ffffff');
-insert into quiz_questions (id, quiz_id, question, photo_url) values (22, 5, 'What is the name of the process by which we acquire a sense of identity and become members of society?', 'http://dummyimage.com/135x100.png/dddddd/000000');
-insert into quiz_questions (id, quiz_id, question, photo_url) values (23, 5, 'In contemporary societies, social institutions are:', 'http://dummyimage.com/103x100.png/cc0000/ffffff');
-insert into quiz_questions (id, quiz_id, question, photo_url) values (24, 5, 'Which of the following is not recognised as a level of society?', 'http://dummyimage.com/122x100.png/cc0000/ffffff');
-insert into quiz_questions (id, quiz_id, question, photo_url) values (25, 5, 'When sociologists study the structure of layers in society and people''s movement between them, they call this:', 'http://dummyimage.com/148x100.png/dddddd/000000');
+insert into quiz_questions (id, quiz_id, question, photo_url) values (21, 5, 'What is the definition of the term "sociology"?', 'http://dummyimage.com/154x100.png/ff4444/ffffff');
+insert into quiz_questions (id, quiz_id, question, photo_url) values (22, 5, 'Which founding sociologist identified the bourgeoisie and proletariat classes?', 'http://dummyimage.com/135x100.png/dddddd/000000');
+insert into quiz_questions (id, quiz_id, question, photo_url) values (23, 5, 'Which of the three perspectives in Sociology focuses on one-on-one relationships?', 'http://dummyimage.com/103x100.png/cc0000/ffffff');
+insert into quiz_questions (id, quiz_id, question, photo_url) values (24, 5, 'What is the Sapir-Whorf hypothesis?', 'http://dummyimage.com/122x100.png/cc0000/ffffff');
+insert into quiz_questions (id, quiz_id, question, photo_url) values (25, 5, 'Which of these is not one of the U.S. values identified by James Heslin?', 'http://dummyimage.com/148x100.png/dddddd/000000');
 
