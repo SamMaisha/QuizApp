@@ -231,7 +231,6 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: spac;
   background-color: $white-color;
 }
 
@@ -248,8 +247,8 @@ select {
 .icon-container {
   background-color: $secondary-color;
   border-radius: $border-radius;
-  width: 125px;
-  height: 125px;
+  width: 115px;
+  height: 115px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -265,15 +264,15 @@ i {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 15%;
+    width: 25%;
 
     p {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 50%;
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 5px;
+      padding-right: 5px;
       word-wrap: nowrap;
       margin-top: 0;
       text-align: center;
@@ -430,11 +429,11 @@ i {
 .table {
   border-collapse: collapse;
   font-family: $font-family;
-  margin: 5rem auto;
+  margin: 2rem auto;
   width: 80%;
   text-align: center;
   table-layout: fixed;
-  width: 80%;
+  width: 75%;
 
 }
 
@@ -476,7 +475,7 @@ thead > tr > th {
 
 .img-jump {
 height: auto;
-  width: 30%;
+  width: 35%;
 }
 
 /* images */
@@ -500,8 +499,6 @@ height: auto;
 
 }
 
-
-
 .great-work-container {
   display: flex;
   flex-direction: row;
@@ -514,6 +511,25 @@ height: auto;
     padding-bottom: 1rem;
     width: 35%;
   }
+}
+
+.user-quiz-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+.img-look-phone {
+  width: 50%;
+  height: auto;
+  padding-top: 90px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-bottom: 1rem;
+}
 }
 
  /* Mobile */
