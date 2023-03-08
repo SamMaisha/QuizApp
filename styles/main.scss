@@ -18,7 +18,7 @@ $font-weight-bold: 600;
 $font-size-large: 2rem;
 $font-size-medium: 1.5rem;
 
-$border-radius: 1.5rem;
+$border-radius: .5rem;
 
 // Global styles
 
@@ -252,7 +252,6 @@ select {
   border-radius: $border-radius;
   width: 150px;
   height: 150px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -481,3 +480,24 @@ thead > tr > th {
   padding: 2rem;
 
  }
+
+ /* Mobile */
+@media (max-width: 767px) {
+
+  /* styles for screens smaller than 767px */
+
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  /* styles for screens between 768px and 1023px */
+
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+
+  /* styles for screens larger than 1024px */
+
+}
