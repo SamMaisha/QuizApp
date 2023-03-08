@@ -18,7 +18,7 @@ $font-weight-bold: 600;
 $font-size-large: 2rem;
 $font-size-medium: 1.5rem;
 
-$border-radius: .5rem;
+$border-radius: 5rem;
 
 // Global styles
 
@@ -214,7 +214,6 @@ select {
 }
 
 .hero-img {
-
   width: 75%;
   display: flex;
   flex-direction: row;
@@ -232,7 +231,7 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: spac;
   background-color: $white-color;
 }
 
@@ -240,18 +239,17 @@ select {
 .quiz-cards {
   display: flex;
   flex-direction: row;
+  overflow-x: scroll;
+  width: 100%;
   align-items: flex-start;
   justify-content: center;
-  width: 100%;
-  height: auto;
-  overflow-x: scroll;
 }
 
 .icon-container {
   background-color: $secondary-color;
   border-radius: $border-radius;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -267,7 +265,7 @@ i {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 20%;
+    width: 15%;
 
     p {
       display: flex;
@@ -330,10 +328,9 @@ i {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 
-  background-color: $accent-color;
 }
 
 .quiz-container {
@@ -341,6 +338,7 @@ i {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
 }
 
 .question-box {
@@ -351,7 +349,7 @@ i {
   margin: 1rem;
   padding: 1rem;
   width: 60%;
-  border-radius: $border-radius;
+  border-radius: 1.5rem;
   color: $primary-color;
   background-color: $secondary-color;
 
@@ -392,17 +390,52 @@ i {
   }
 }
 
+.create-instructions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-left: 3rem;
+  padding-right: 3rem;
+
+}
+
+ .create-instructions-1, .create-instructions-2, .create-instructions-3, .create-instructions-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+
+  i {
+    font-size: 2rem;
+    color: $secondary-color;
+  }
+ }
+ .button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+
+ }
+
+
 
 
 // Quiz Results Page
 
 .table {
-
   border-collapse: collapse;
   font-family: $font-family;
   margin: 5rem auto;
   width: 80%;
   text-align: center;
+  table-layout: fixed;
+  width: 80%;
+
 }
 
 th,
@@ -410,6 +443,7 @@ td {
   font-family: $font-family;
   text-align: center;
   padding: 1rem;
+  width: 40%;
 }
 
 thead > tr > th {
@@ -421,7 +455,7 @@ thead > tr > th {
 
 .results-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -429,7 +463,23 @@ thead > tr > th {
   background-color: $accent-color;
 }
 
+.results-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  padding-top: 3rem;
 
+}
+
+.img-jump {
+height: auto;
+  width: 30%;
+}
+
+/* images */
 
 .img-shopping-cart {
   width: 27%;
@@ -450,36 +500,21 @@ thead > tr > th {
 
 }
 
-.create-instructions {
+
+
+.great-work-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-  background-color: $accent-color;
-}
-
- .create-instructions-1, .create-instructions-2, .create-instructions-3, .create-instructions-4 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  background-color: $accent-color;
-
-  i {
-    font-size: 2rem;
-    color: $secondary-color;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  .img-zen {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 35%;
   }
- }
- .button {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-
- }
+}
 
  /* Mobile */
 @media (max-width: 767px) {

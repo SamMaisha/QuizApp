@@ -34,19 +34,22 @@
     <% include partials/_header %>
 
     <div class="results-header">
-    <h2>Your Results</h2>
-    <p>instructions for user to see their score and share their quiz</p>
+    <h1>Quiz-Tastic Results!</h1>
+    <img src="/images/jump.png" alt="" class="img-jump">
     </div>
+    <div class="results-main">
+    <h2>Wow, you must have a PhD in Quizzing! Let's check out your quiz history, smarty pants.</h2>
+    <h2>Here's a rundown of your epic acheivements:</h2>
+  </div>
+    <table class="table" >
 
-    <table class="table">
       <thead>
         <tr>
           <th>Quiz Name</th>
           <th scope="col">Your Score</th>
-          <th scope="col">Share with Friends!</th>
+          <th scope="col">Liked this Quiz? Share it with your friends!</th>
         </tr>
       </thead>
-
     <tbody>
 
         <% results.forEach((result) => { %>
@@ -59,8 +62,13 @@
 
     </tbody>
     </table>
-    <div class="tbd"></div>
-<div class="tbd"></div>
+    <div class="great-work-container">
+       <img src="/images/zen.png" alt="" class="img-zen">
+       <h2>Keep up the great work, oh wise and all-knowing quiz master!</h2>
+    </div>
+
+    <div>
     <% include partials/_footer %>
+  </div>
    </body>
 </html>
