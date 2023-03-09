@@ -312,12 +312,28 @@ i {
   color: $primary-color;
   background-color: $secondary-color;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
   position: sticky;
+  justify-content: space-between;
 }
+
+.col-1 {
+  flex: 1;
+}
+
+.col-2 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.col-3 {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+
 
 
 // quiz create page
