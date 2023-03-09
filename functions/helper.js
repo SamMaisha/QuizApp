@@ -1,4 +1,6 @@
 // function to push answers query into the quiz questions object -- USED IN GET /quizzes/:quizid
+const { getAllEmails } = require('../db/queries/users')
+
 const pushAnswersIntoQuestionObject = (array1, array2) => {
   const updatedQuestionArray = array1.map(questionObject => {
     const answersArrayForEachQuestion = array2.filter(answersObject => {
@@ -43,4 +45,20 @@ const pushAnswerIntoQuestion = (array1, array2) => {
   })
   return updatedArray;
 }
-module.exports = { pushAnswersIntoQuestionObject, calculateQuizScore }
+
+const userValidator = function (userEmail) {
+  return getAllEmails()
+  .then(data => {
+    for(const user of data) {
+      if (userEmail === user.email) {
+        const result = true;
+        return result;
+      }
+    }
+    const result = false;
+    return result;
+  })
+}
+
+
+module.exports = { pushAnswersIntoQuestionObject, calculateQuizScore, userValidator }
