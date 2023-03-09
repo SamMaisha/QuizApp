@@ -10,7 +10,8 @@ $accent-color: #c1f0f1;
 
 $width: 100%;
 
-$font-family: "Open Sans", sans-serif;
+$font-family: "Open Sans",
+sans-serif;
 $font-weight-light: 300;
 $font-weight-normal: 400;
 $font-weight-bold: 600;
@@ -52,6 +53,7 @@ h6 {
   font-family: $font-family;
   text-align: center;
   font-weight: $font-weight-bold;
+
   &:hover {
     color: lighten($primary-color, 10%);
   }
@@ -59,6 +61,7 @@ h6 {
 
 h1 {
   font-size: $font-size-large;
+
   &:hover {
     color: lighten($primary-color, 10%);
   }
@@ -66,6 +69,7 @@ h1 {
 
 h2 {
   font-size: $font-size-medium;
+
   &:hover {
     color: lighten($primary-color, 10%);
   }
@@ -74,6 +78,7 @@ h2 {
 a {
   color: $primary-color;
   text-decoration: none;
+
   &:hover {
     color: lighten($primary-color, 10%);
   }
@@ -92,6 +97,7 @@ button {
   border-radius: $border-radius;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+
   &:hover {
     background-color: lighten($primary-color, 10%);
   }
@@ -111,6 +117,7 @@ select {
   font-weight: $font-weight-normal;
 
   color: $secondary-color;
+
   &:focus {
     outline: none;
     border-color: $white-color;
@@ -144,6 +151,7 @@ select {
     font-family: $font-family;
     color: $secondary-color;
     text-decoration: none;
+
     &:hover {
       color: lighten($primary-color, 10%);
     }
@@ -173,6 +181,7 @@ select {
     font-size: 1.5rem;
     color: $secondary-color;
     letter-spacing: 0.1rem;
+
     &:hover {
       color: lighten($primary-color, 10%);
     }
@@ -185,6 +194,21 @@ select {
     color: $secondary-color;
     letter-spacing: 0.1rem;
   }
+}
+
+// Footer Styles
+
+.footer {
+  width: 100%;
+  height: 100px;
+  color: $primary-color;
+  background-color: $secondary-color;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  position: sticky;
 }
 
 // Hero Styles
@@ -220,13 +244,11 @@ select {
   align-items: center;
   justify-content: center;
   margin-left: 4rem;
-
-
- }
+}
 
 // Quiz Display Styles
 .take-quiz-text {
-  width: 100%;
+  width: 80%;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -259,82 +281,42 @@ i {
 
 }
 
-  .column {
-    color: $secondary-color;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 25%;
+.column {
+  color: $secondary-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 17%;
 
-    p {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50%;
-      padding-left: 5px;
-      padding-right: 5px;
-      word-wrap: nowrap;
-      margin-top: 0;
-      text-align: center;
-    }
-  }
-  .take-quiz-container {
+  p {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-
+    width: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: nowrap;
+    margin-top: 0;
+    text-align: center;
   }
-  .take-quiz-img {
-    background: transparent;
-    padding-top: 1rem;
-    padding-right: 5rem;
-    padding-bottom: 1rem;
-    width: 35%;
-    height: 35%;
-  }
-
-
-
-
-// TBD Display Styles
-
-.tbd {
-  display: flex;
-  height: 400px;
 }
 
-// Footer Styles
-
-.footer {
-  width: 100%;
-  height: 100px;
-  color: $primary-color;
-  background-color: $secondary-color;
+.take-quiz-container {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  padding: 1rem 2rem;
-  position: sticky;
-  justify-content: space-between;
-}
-
-.col-1 {
-  flex: 1;
-}
-
-.col-2 {
-  flex: 1;
-  display: flex;
   justify-content: center;
+
 }
 
-.col-3 {
-  display: flex;
-  justify-content: flex-end;
-  flex: 1;
+.take-quiz-img {
+  background: transparent;
+  padding-top: 1rem;
+  padding-right: 5rem;
+  padding-bottom: 1rem;
+  width: 35%;
+  height: 35%;
 }
-
-
 
 // quiz create page
 
@@ -368,8 +350,7 @@ i {
   color: $primary-color;
   background-color: $secondary-color;
 
-
-   li {
+  li {
     display: flex;
     flex-direction: row;
     margin: 1rem;
@@ -381,7 +362,7 @@ i {
     justify-content: center;
   }
 
- h4 {
+  h4 {
     display: flex;
     justify-content: center;
     margin: -1rem;
@@ -396,10 +377,12 @@ i {
     margin-left: -2rem;
     margin-right: 1rem;
   }
+
   .question-text {
     width: 92%;
     margin-left: 1.25rem;
   }
+
   input[type="radio"] {
     outline: transparent;
   }
@@ -412,10 +395,12 @@ i {
   justify-content: center;
   padding-left: 3rem;
   padding-right: 3rem;
-
 }
 
- .create-instructions-1, .create-instructions-2, .create-instructions-3, .create-instructions-4 {
+.create-instructions-1,
+.create-instructions-2,
+.create-instructions-3,
+.create-instructions-4 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -427,18 +412,16 @@ i {
     font-size: 2rem;
     color: $secondary-color;
   }
- }
- .button {
+}
+
+.button {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   padding: 2rem;
 
- }
-
-
-
+}
 
 // Quiz Results Page
 
@@ -461,7 +444,7 @@ td {
   width: 40%;
 }
 
-thead > tr > th {
+thead>tr>th {
   font-size: 18px;
   border-bottom: 2px solid $secondary-color;
   border-top: transparent;
@@ -490,29 +473,8 @@ thead > tr > th {
 }
 
 .img-jump {
-height: auto;
+  height: auto;
   width: 35%;
-}
-
-/* images */
-
-.img-shopping-cart {
-  width: 27%;
-  height: auto;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding-bottom: 1rem;
-}
-
-.img-on-couch {
-  padding-top: 6rem;
-  width: 27%;
-  height: auto;
-  position: absolute;
-   top: 0;
-   left: 0;
-
 }
 
 .great-work-container {
@@ -522,6 +484,7 @@ height: auto;
   justify-content: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
+
   .img-zen {
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -530,25 +493,63 @@ height: auto;
 }
 
 .user-quiz-header {
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
-
-.img-look-phone {
-  width: 50%;
-  height: auto;
-  padding-top: 90px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding-bottom: 1rem;
-}
 }
 
- /* Mobile */
+/* Quiz Take Page */
+
+.quiz-description-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+}
+
+.quiz-boxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+}
+
+.quiz-box {
+ width: 60%;
+  margin: 1rem;
+  border-radius: 1.5rem;
+  color: $primary-color;
+  background-color: $secondary-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+
+}
+
+
+/* Media Queries */
+
+/* Mobile */
 @media (max-width: 767px) {
 
   /* styles for screens smaller than 767px */
@@ -566,5 +567,27 @@ height: auto;
 @media (min-width: 1024px) {
 
   /* styles for screens larger than 1024px */
+
+}
+
+
+/* images */
+
+.img-shopping-cart {
+  width: 27%;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-bottom: 1rem;
+}
+
+.img-on-couch {
+  padding-top: 6rem;
+  width: 27%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
 
 }
