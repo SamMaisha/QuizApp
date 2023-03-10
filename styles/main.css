@@ -12,7 +12,6 @@ body {
   flex-direction: column;
   justify-content: center;
   padding-top: 90px;
-  height: 100%;
 }
 
 h1,
@@ -165,7 +164,7 @@ select:focus {
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  position: sticky;
+  position: relative;
 }
 
 .hero-container {
@@ -474,6 +473,78 @@ thead > tr > th {
   padding: 2rem;
 }
 
+/* Login Page */
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: #c1f0f1;
+}
+.login-form-container .login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  border-radius: 1.5rem;
+}
+.login-form-container .login-form label {
+  margin: 1rem;
+}
+
+.submit-button {
+  margin-top: 1rem;
+}
+
+.footer-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-img .on-couch-img {
+  width: 35%;
+  height: auto;
+}
+
+/* Register Page */
+.register-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: #c1f0f1;
+}
+.register-form-container .register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  border-radius: 1.5rem;
+}
+.register-form-container .register-form label {
+  margin: 1rem;
+}
+
+.submit-button {
+  margin-top: 1rem;
+}
+
+.footer-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-img .on-couch-img {
+  width: 35%;
+  height: auto;
+}
+
 /* Media Queries */
 /* Mobile */
 @media (max-width: 767px) {
@@ -486,22 +557,4 @@ thead > tr > th {
 /* Desktop */
 @media (min-width: 1024px) {
   /* styles for screens larger than 1024px */
-}
-/* images */
-.img-shopping-cart {
-  width: 27%;
-  height: auto;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding-bottom: 1rem;
-}
-
-.img-on-couch {
-  padding-top: 6rem;
-  width: 27%;
-  height: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
 }/*# sourceMappingURL=main.css.map */

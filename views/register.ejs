@@ -36,16 +36,20 @@
   <% include partials/_header %>
 
   <!-- Login Form -->
-
+<div class="register-form-container">
   <h1>Register</h1>
-  <form action="/register" method="POST">
+  <form action="/register" method="POST" class="register-form">
     <label for="username">Username</label>
     <input type="text" name="username" id="username" />
     <label for="password">Password</label>
     <input type="password" name="password" id="password" />
-    <button type="submit">Register</button>
+    <button type="submit" class="submit-button">Login</button>
   </form>
-  <h2>Already have an account? <a href="/login">Click here to login</a></h2>
+</div>
+<h2>Already't have an account? <a href="/login">Click here to login</a></h2>
+<div class="footer-img">
+<img src="/images/shopping-cart.png" alt="woman looking on phone in shopping cart" class="on-couch-img">
+</div>
 
   <!-- Footer -->
 

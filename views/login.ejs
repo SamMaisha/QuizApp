@@ -35,16 +35,21 @@
   <% include partials/_header %>
 
   <!-- Login Form -->
-
+<div class="login-form-container">
   <h1>Login</h1>
-  <form action="/login" method="POST">
+
+  <form action="/login" method="POST" class="login-form">
     <label for="username">Username</label>
     <input type="text" name="username" id="username" />
     <label for="password">Password</label>
     <input type="password" name="password" id="password" />
-    <button type="submit">Login</button>
+    <button type="submit" class="submit-button">Login</button>
   </form>
-  <h2>Don't have an account? <a href="/register">Click here to register</a></h2>
+</div>
+<h2>Don't have an account? <a href="/register">Click here to register</a></h2>
+<div class="footer-img">
+<img src="/images/on couch.png" alt="woman on couch looking on computer" class="on-couch-img">
+</div>
 
   <!-- Footer -->
 

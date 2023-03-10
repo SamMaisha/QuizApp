@@ -38,7 +38,7 @@ body {
   flex-direction: column;
   justify-content: center;
   padding-top: 90px;
-  height: 100%;
+
 
 }
 
@@ -208,7 +208,7 @@ select {
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  position: sticky;
+  position: relative;
 }
 
 // Hero Styles
@@ -535,8 +535,6 @@ thead>tr>th {
   justify-content: center;
 }
 
-
-
 .submit {
   display: flex;
   flex-direction: column;
@@ -545,6 +543,82 @@ thead>tr>th {
   padding: 2rem;
 
 }
+
+/* Login Page */
+
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: $accent-color;
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    border-radius: 1.5rem;
+    label {
+      margin: 1rem;
+    }
+  }
+}
+
+.submit-button{
+  margin-top: 1rem;
+}
+
+.footer-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .on-couch-img {
+  width: 35%;
+  height: auto;
+  }
+}
+
+/* Register Page */
+
+.register-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: $accent-color;
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    border-radius: 1.5rem;
+    label {
+      margin: 1rem;
+    }
+  }
+}
+
+.submit-button{
+  margin-top: 1rem;
+}
+
+.footer-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .on-couch-img {
+  width: 35%;
+  height: auto;
+  }
+}
+
+
 
 
 /* Media Queries */
@@ -571,23 +645,3 @@ thead>tr>th {
 }
 
 
-/* images */
-
-.img-shopping-cart {
-  width: 27%;
-  height: auto;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding-bottom: 1rem;
-}
-
-.img-on-couch {
-  padding-top: 6rem;
-  width: 27%;
-  height: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-
-}
