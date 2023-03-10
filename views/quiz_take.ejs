@@ -36,14 +36,13 @@
   <body>
     <% include partials/_header %>
 
-   <div class="quiz-descripton-container">
-      <h1><%= quizzes.title %></h1>
-      <h2><%= quizzes.description %></h2>
-      <h3><%= quizzes.owner_name %></h3>
-      <h4><%= quizzes.type %></h4>
-    </div>
+
 
       <form action="/quizzes/<%= quizzes[0].quiz_id %>" method="POST">
+        <h1><%= quizzes[0].title %></h1>
+        <h2><%= quizzes[0].description %></h2>
+        <h3>Created by: <%= quizzes[0].owner_name %></h3>
+        <h4>Genre: <%= quizzes[0].type %></h4>
         <!-- Question 1 -->
         <div class="quiz-boxes">
         <div class="quiz-box" id="quiz">
@@ -113,16 +112,9 @@
           <ol type="a">
             <li class="answer-list">
 
-              <label for="a" id="a_text"
-                ><%= quizzes[1].answers[0].answer %></label
-              >
-              <input
-              type="radio"
-              name="2answer"
-              id="a"
-              class="answer"
-              value="<%- quizzes[1].answers[0].answer %>"
-            />
+              <label for="a" id="a_text"><%= quizzes[1].answers[0].answer %></label>
+              <input type="radio" name="2answer" id="a" class="answer"
+              value="<%- quizzes[1].answers[0].answer %>"/>
             </li>
 
             <li class="answer-list">
@@ -346,7 +338,7 @@
         </div>
       </div>
         <div class="submit">
-          <button id="submit">Submit</button>
+        <button id="submit">Submit</button>
         </div>
       </form>
     </body>

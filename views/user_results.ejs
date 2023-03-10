@@ -55,8 +55,8 @@
         <% results.forEach((result) => { %>
           <tr>
           <td><a href="/quizzes/<%= result.quiz_id %>"><%= result.quiz_title %></a></td>
-          <td><%= result.score %></td>
-          <td><a href="/quizzes/<%=result.user_id%>/quizzes/<%= result.quiz_id %>/share">Share</a></td>
+          <td><%= result.score %>/5</td>
+          <td><a href="/quizzes/<%= result.quiz_id %>">https://quizzeswithfriends.com/quizzes/<%= result.quiz_id %></a></td>
         </tr>
       <% }) %>
 
