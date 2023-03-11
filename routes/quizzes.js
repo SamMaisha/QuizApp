@@ -178,7 +178,7 @@ router.post("/:quizid", (req, res) => {
       if (!quizResult) {
         res.send("Oops! It appears that something has gone wrong")
       }
-      res.redirect('/quizzes');
+      res.redirect(quizResultLink);
     })
   })
 });

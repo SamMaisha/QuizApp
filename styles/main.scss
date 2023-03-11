@@ -106,7 +106,6 @@ button {
 input,
 textarea,
 select {
-  display: block;
   width: 100%;
   height: auto;
   border: none;
@@ -115,7 +114,6 @@ select {
   background-color: lighten($white-color, 40%);
   font-family: $font-family;
   font-weight: $font-weight-normal;
-
   color: $secondary-color;
 
   &:focus {
@@ -123,6 +121,7 @@ select {
     border-color: $white-color;
   }
 }
+
 
 // Navbar Styles
 
@@ -511,6 +510,23 @@ thead>tr>th {
   justify-content: center;
   padding-top: 3rem;
   padding-bottom: 3rem;
+}
+
+.answer-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-right: -10rem;
+}
+
+
+label {
+  width: 100%;
+  flex-direction: row;
 
 }
 
@@ -524,7 +540,7 @@ thead>tr>th {
 }
 
 .quiz-box {
- width: 60%;
+ width: 50%;
   margin: 1rem;
   border-radius: 1.5rem;
   color: $primary-color;
@@ -533,16 +549,37 @@ thead>tr>th {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  ol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+    padding: 1rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+}
+
+.answer-list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
 }
 
 .submit {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-
+  padding-bottom: 2rem;
 }
+
+
 
 /* Login Page */
 
@@ -617,31 +654,4 @@ thead>tr>th {
   height: auto;
   }
 }
-
-
-
-
-/* Media Queries */
-
-/* Mobile */
-@media (max-width: 767px) {
-
-  /* styles for screens smaller than 767px */
-
-}
-
-/* Tablet */
-@media (min-width: 768px) and (max-width: 1023px) {
-
-  /* styles for screens between 768px and 1023px */
-
-}
-
-/* Desktop */
-@media (min-width: 1024px) {
-
-  /* styles for screens larger than 1024px */
-
-}
-
 
